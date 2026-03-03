@@ -1054,7 +1054,7 @@ footer a:hover { color: var(--gold); }
   <div class="container">
     <div class="section-header">
       <h2>ตารางผลคะแนน</h2>
-      <p>Leaderboard &mdash; เรียงตามคะแนนเฉลี่ย (Average Score) จาก 28 ชุดทดสอบภาษาไทย &middot; คลิกหัวคอลัมน์เพื่อเรียงลำดับ</p>
+      <p>Leaderboard &mdash; เรียงตามคะแนนเฉลี่ย (Average Score) จาก 28 ชุดทดสอบภาษาไทย &middot; คลิกหัวคอลัมน์เพื่อเรียงลำดับ &middot; โมเดลที่ไม่ครบ 28 task เกิดจาก CUDA OOM บน A100 40GB</p>
     </div>
     <div class="table-wrap">
       <table id="leaderboard-table">
@@ -1305,6 +1305,11 @@ footer a:hover { color: var(--gold); }
         <p>Full / Auto</p>
         <div class="detail">โมเดลโหลดด้วย precision ตาม config ดั้งเดิม (fp32/fp16/bf16)</div>
       </div>
+      <div class="method-card">
+        <h4>OOM Tasks</h4>
+        <p>A100 40GB Limit</p>
+        <div class="detail">MIRACL Retrieval, MrTyDi, MultiLongDoc, Wongnai ล้มเหลวบนโมเดล 300M+ เนื่องจาก VRAM ไม่พอสำหรับ corpus ขนาดใหญ่</div>
+      </div>
     </div>
 
     <!-- ThaiSC Acknowledgment -->
@@ -1452,7 +1457,8 @@ function renderLeaderboard() {
     if (m.tasks_completed === m.tasks_total) {
       tasksBadge = `<span class="tasks-badge tasks-full">${m.tasks_completed}/${m.tasks_total}</span>`;
     } else {
-      tasksBadge = `<span class="tasks-badge tasks-partial">${m.tasks_completed}/${m.tasks_total}</span>`;
+      const oomCount = m.tasks_total - m.tasks_completed;
+      tasksBadge = `<span class="tasks-badge tasks-partial" title="${oomCount} tasks failed: CUDA OOM on A100 40GB">${m.tasks_completed}/${m.tasks_total}</span>`;
     }
 
     const typeCells = types.map(t => {
