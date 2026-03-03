@@ -684,6 +684,317 @@ footer a {
 
 footer a:hover { color: var(--gold); }
 
+/* ============ MODEL COMPARISON ============ */
+.compare-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: flex-end;
+  margin-bottom: 28px;
+}
+
+.compare-select-wrap {
+  position: relative;
+  flex: 1;
+  min-width: 220px;
+  max-width: 380px;
+}
+
+.compare-select-label {
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.compare-select-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.compare-select {
+  width: 100%;
+  padding: 10px 36px 10px 14px;
+  background: var(--navy-card);
+  border: 1px solid var(--navy-border);
+  border-radius: 8px;
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 0.875rem;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  transition: border-color 0.2s;
+}
+
+.compare-select:hover,
+.compare-select:focus {
+  border-color: var(--gold-dim);
+  outline: none;
+}
+
+.compare-select option {
+  background: var(--navy-card);
+  color: var(--text);
+}
+
+.compare-select-wrap::after {
+  content: '\25BE';
+  position: absolute;
+  right: 14px;
+  bottom: 12px;
+  color: var(--text-muted);
+  pointer-events: none;
+  font-size: 0.875rem;
+}
+
+.compare-btn {
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-family: var(--sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  border: 1px solid;
+}
+
+.compare-add-btn {
+  background: rgba(201,168,76,0.08);
+  border-color: rgba(201,168,76,0.2);
+  color: var(--gold);
+}
+
+.compare-add-btn:hover {
+  background: rgba(201,168,76,0.15);
+  border-color: rgba(201,168,76,0.4);
+}
+
+.compare-remove-btn {
+  background: rgba(248,113,113,0.06);
+  border-color: rgba(248,113,113,0.15);
+  color: var(--red);
+  font-size: 0.75rem;
+  padding: 8px 12px;
+}
+
+.compare-remove-btn:hover {
+  background: rgba(248,113,113,0.12);
+  border-color: rgba(248,113,113,0.3);
+}
+
+.compare-content {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .compare-content { grid-template-columns: 1fr; }
+}
+
+.compare-summary {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.compare-summary-card {
+  flex: 1;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid var(--navy-border);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+  transition: border-color 0.3s;
+}
+
+.compare-summary-card .cs-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  margin-bottom: 6px;
+}
+
+.compare-summary-card .cs-name {
+  font-size: 0.75rem;
+  color: var(--text-dim);
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.compare-summary-card .cs-avg {
+  font-family: var(--mono);
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.compare-summary-card .cs-wins {
+  font-size: 0.6875rem;
+  color: var(--text-muted);
+  margin-top: 6px;
+  font-family: var(--mono);
+}
+
+.compare-chart-card {
+  background: var(--navy-card);
+  border: 1px solid var(--navy-border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.compare-chart-card h3 {
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.compare-chart-canvas-wrap {
+  position: relative;
+  aspect-ratio: 1;
+  max-height: 420px;
+  margin: 0 auto;
+}
+
+.compare-table-card {
+  background: var(--navy-card);
+  border: 1px solid var(--navy-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.compare-table-card h3 {
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  padding: 20px 20px 0;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.compare-table-scroll {
+  overflow-x: auto;
+  max-height: 600px;
+  overflow-y: auto;
+}
+
+.compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+}
+
+.compare-table thead {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+
+.compare-table thead th {
+  background: var(--navy-light);
+  padding: 10px 14px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  font-size: 0.625rem;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--navy-border);
+  white-space: nowrap;
+}
+
+.compare-table thead th.score-col {
+  text-align: right;
+  min-width: 80px;
+}
+
+.compare-table tbody td {
+  padding: 7px 14px;
+  border-bottom: 1px solid rgba(30,42,74,0.3);
+}
+
+.compare-table .task-name-cell {
+  font-family: var(--sans);
+  color: var(--text-dim);
+  font-size: 0.8125rem;
+  white-space: nowrap;
+}
+
+.compare-table .score-cell {
+  font-family: var(--mono);
+  font-weight: 500;
+  text-align: right;
+  position: relative;
+}
+
+.compare-table .score-cell.is-winner {
+  font-weight: 700;
+}
+
+.compare-table .score-cell.is-winner::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 4px;
+  bottom: 4px;
+  width: 3px;
+  border-radius: 2px;
+}
+
+.compare-table .type-separator td {
+  background: rgba(201,168,76,0.04);
+  font-family: var(--sans);
+  font-weight: 600;
+  color: var(--text);
+  font-size: 0.6875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--navy-border);
+}
+
+.compare-diff {
+  font-size: 0.625rem;
+  font-weight: 400;
+  margin-left: 4px;
+  opacity: 0.7;
+}
+
+.compare-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+  background: var(--navy-card);
+  border: 1px solid var(--navy-border);
+  border-radius: 12px;
+}
+
+.compare-empty p {
+  font-size: 1rem;
+  margin-bottom: 6px;
+  color: var(--text-dim);
+}
+
+.compare-empty .hint {
+  font-size: 0.8125rem;
+}
+
+@media (max-width: 640px) {
+  .compare-summary { flex-direction: column; }
+  .compare-controls { flex-direction: column; }
+  .compare-select-wrap { max-width: none; }
+}
+
 /* ============ UTILITIES ============ */
 .sr-only {
   position: absolute;
@@ -765,6 +1076,45 @@ footer a:hover { color: var(--gold); }
         <tbody id="leaderboard-body"></tbody>
       </table>
     </div>
+  </div>
+</section>
+
+<!-- ====== MODEL COMPARISON ====== -->
+<section id="compare">
+  <div class="container">
+    <div class="section-header">
+      <h2>เปรียบเทียบโมเดล</h2>
+      <p>Head-to-Head Comparison &mdash; เลือกโมเดล 2&ndash;3 ตัวเพื่อเปรียบเทียบคะแนนรายชุดทดสอบ</p>
+    </div>
+    <div class="compare-controls" id="compare-controls">
+      <div class="compare-select-wrap">
+        <div class="compare-select-label">
+          <span class="compare-select-dot" style="background:#C9A84C"></span> Model A
+        </div>
+        <select class="compare-select" id="compare-a" onchange="updateComparison()">
+          <option value="">-- เลือกโมเดล --</option>
+        </select>
+      </div>
+      <div class="compare-select-wrap">
+        <div class="compare-select-label">
+          <span class="compare-select-dot" style="background:#60A5FA"></span> Model B
+        </div>
+        <select class="compare-select" id="compare-b" onchange="updateComparison()">
+          <option value="">-- เลือกโมเดล --</option>
+        </select>
+      </div>
+      <div class="compare-select-wrap" id="compare-c-wrap" style="display:none">
+        <div class="compare-select-label">
+          <span class="compare-select-dot" style="background:#4ADE80"></span> Model C
+          <button class="compare-btn compare-remove-btn" onclick="removeThirdModel()" title="ลบ Model C">&times;</button>
+        </div>
+        <select class="compare-select" id="compare-c" onchange="updateComparison()">
+          <option value="">-- เลือกโมเดล --</option>
+        </select>
+      </div>
+      <button class="compare-btn compare-add-btn" id="compare-add-btn" onclick="addThirdModel()">+ เพิ่มโมเดล</button>
+    </div>
+    <div id="compare-result"></div>
   </div>
 </section>
 
@@ -1348,6 +1698,265 @@ function renderModelCards() {
   });
 }
 
+// ============ MODEL COMPARISON ============
+const COMPARE_COLORS = [
+  { bg: 'rgba(201,168,76,0.18)', border: '#C9A84C', dot: '#C9A84C' },
+  { bg: 'rgba(96,165,250,0.18)', border: '#60A5FA', dot: '#60A5FA' },
+  { bg: 'rgba(74,222,128,0.18)', border: '#4ADE80', dot: '#4ADE80' },
+];
+
+let compareChart = null;
+let thirdModelVisible = false;
+
+function populateCompareSelects() {
+  const models = getDisplayModels();
+  const selects = ['compare-a', 'compare-b', 'compare-c'];
+  selects.forEach(id => {
+    const sel = document.getElementById(id);
+    const current = sel.value;
+    sel.innerHTML = '<option value="">-- เลือกโมเดล --</option>';
+    models.forEach(m => {
+      const shortName = m.name.split('/').pop();
+      const org = m.name.includes('/') ? m.name.split('/')[0] : '';
+      const opt = document.createElement('option');
+      opt.value = m.name;
+      opt.textContent = `${shortName} (${org}) — ${m.avg_score.toFixed(1)}`;
+      sel.appendChild(opt);
+    });
+    if (current) sel.value = current;
+  });
+}
+
+function addThirdModel() {
+  thirdModelVisible = true;
+  document.getElementById('compare-c-wrap').style.display = '';
+  document.getElementById('compare-add-btn').style.display = 'none';
+}
+
+function removeThirdModel() {
+  thirdModelVisible = false;
+  document.getElementById('compare-c-wrap').style.display = 'none';
+  document.getElementById('compare-add-btn').style.display = '';
+  document.getElementById('compare-c').value = '';
+  updateComparison();
+}
+
+function getSelectedModels() {
+  const names = [
+    document.getElementById('compare-a').value,
+    document.getElementById('compare-b').value,
+  ];
+  if (thirdModelVisible) {
+    names.push(document.getElementById('compare-c').value);
+  }
+  const allModels = getDisplayModels();
+  return names.map(n => allModels.find(m => m.name === n)).filter(Boolean);
+}
+
+function updateComparison() {
+  const selected = getSelectedModels();
+  const container = document.getElementById('compare-result');
+
+  if (selected.length < 2) {
+    container.innerHTML = `
+      <div class="compare-empty">
+        <p>เลือกอย่างน้อย 2 โมเดลเพื่อเปรียบเทียบ</p>
+        <div class="hint">Select at least 2 models to compare head-to-head</div>
+      </div>`;
+    if (compareChart) { compareChart.destroy(); compareChart = null; }
+    return;
+  }
+
+  // Collect all tasks across selected models
+  const allTasks = new Map();
+  const types = ['BitextMining', 'Classification', 'Clustering', 'PairClassification', 'Reranking', 'Retrieval'];
+
+  selected.forEach(m => {
+    m.task_results.forEach(r => {
+      if (!allTasks.has(r.task)) {
+        allTasks.set(r.task, { task: r.task, type: r.task_type });
+      }
+    });
+  });
+
+  // Count wins per model
+  const wins = selected.map(() => 0);
+  allTasks.forEach(({ task }) => {
+    const scores = selected.map(m => {
+      const r = m.task_results.find(t => t.task === task);
+      return r ? r.score : null;
+    });
+    const validScores = scores.filter(s => s !== null);
+    if (validScores.length < 2) return;
+    const maxScore = Math.max(...validScores);
+    scores.forEach((s, i) => {
+      if (s === maxScore) wins[i]++;
+    });
+  });
+
+  // Summary cards
+  let summaryHTML = '<div class="compare-summary">';
+  selected.forEach((m, i) => {
+    const shortName = m.name.split('/').pop();
+    summaryHTML += `
+      <div class="compare-summary-card" style="border-color:${COMPARE_COLORS[i].border}33">
+        <div class="cs-dot" style="background:${COMPARE_COLORS[i].dot}"></div>
+        <div class="cs-name" title="${m.name}">${shortName}</div>
+        <div class="cs-avg" style="color:${COMPARE_COLORS[i].border}">${m.avg_score.toFixed(1)}</div>
+        <div class="cs-wins">${wins[i]} task${wins[i] !== 1 ? 's' : ''} won</div>
+      </div>`;
+  });
+  summaryHTML += '</div>';
+
+  // Build comparison table
+  let tableHTML = `
+    <div class="compare-table-card">
+      <h3>คะแนนรายชุดทดสอบ</h3>
+      <div class="compare-table-scroll">
+        <table class="compare-table">
+          <thead><tr>
+            <th>Task</th>
+            ${selected.map((m, i) => `<th class="score-col" style="color:${COMPARE_COLORS[i].border}">${m.name.split('/').pop().substring(0, 16)}</th>`).join('')}
+          </tr></thead>
+          <tbody>`;
+
+  // Group tasks by type
+  types.forEach(type => {
+    const tasksOfType = [...allTasks.values()].filter(t => t.type === type).sort((a, b) => a.task.localeCompare(b.task));
+    if (tasksOfType.length === 0) return;
+
+    tableHTML += `<tr class="type-separator"><td colspan="${selected.length + 1}">${TASK_TYPE_ICONS[type] || ''} ${TASK_TYPE_LABELS[type] || type} (${tasksOfType.length})</td></tr>`;
+
+    tasksOfType.forEach(({ task }) => {
+      const scores = selected.map(m => {
+        const r = m.task_results.find(t => t.task === task);
+        return r ? r.score : null;
+      });
+      const validScores = scores.filter(s => s !== null);
+      const maxScore = validScores.length > 1 ? Math.max(...validScores) : null;
+
+      tableHTML += `<tr>
+        <td class="task-name-cell">${task}</td>
+        ${scores.map((s, i) => {
+          if (s === null) return '<td class="score-cell" style="color:var(--text-muted)">—</td>';
+          const isWinner = validScores.length > 1 && s === maxScore;
+          const cls = isWinner ? 'score-cell is-winner' : 'score-cell';
+          const winStyle = isWinner ? `color:${COMPARE_COLORS[i].border}` : `color:${scoreColor(s)}`;
+          const afterStyle = isWinner ? `<style>.cmp-win-${task.replace(/[^a-zA-Z0-9]/g, '')}-${i}::after{background:${COMPARE_COLORS[i].border}}</style>` : '';
+          // Diff from best opponent
+          let diff = '';
+          if (validScores.length > 1) {
+            const others = scores.filter((os, oi) => oi !== i && os !== null);
+            const bestOther = Math.max(...others);
+            const d = s - bestOther;
+            if (d > 0) diff = `<span class="compare-diff" style="color:var(--green)">+${d.toFixed(1)}</span>`;
+            else if (d < 0) diff = `<span class="compare-diff" style="color:var(--red)">${d.toFixed(1)}</span>`;
+          }
+          return `<td class="${cls}" style="${winStyle}">${s.toFixed(1)}${diff}</td>`;
+        }).join('')}
+      </tr>`;
+    });
+
+    // Type average row
+    tableHTML += `<tr style="border-bottom:2px solid var(--navy-border)">
+      <td class="task-name-cell" style="font-weight:600;color:var(--text)">AVG ${TASK_TYPE_LABELS[type]}</td>
+      ${selected.map((m, i) => {
+        const val = m.type_averages[type];
+        if (val === undefined) return '<td class="score-cell" style="color:var(--text-muted)">—</td>';
+        return `<td class="score-cell" style="color:${COMPARE_COLORS[i].border};font-weight:700">${val.toFixed(1)}</td>`;
+      }).join('')}
+    </tr>`;
+  });
+
+  // Overall average row
+  tableHTML += `<tr style="background:rgba(201,168,76,0.06)">
+    <td class="task-name-cell" style="font-weight:700;color:var(--gold)">OVERALL AVERAGE</td>
+    ${selected.map((m, i) => `<td class="score-cell" style="color:${COMPARE_COLORS[i].border};font-weight:700;font-size:0.9375rem">${m.avg_score.toFixed(1)}</td>`).join('')}
+  </tr>`;
+
+  tableHTML += '</tbody></table></div></div>';
+
+  // Build full content
+  container.innerHTML = `
+    ${summaryHTML}
+    <div class="compare-content">
+      <div class="compare-chart-card">
+        <h3>เปรียบเทียบตามประเภทงาน</h3>
+        <div class="compare-chart-canvas-wrap">
+          <canvas id="compare-radar"></canvas>
+        </div>
+      </div>
+      ${tableHTML}
+    </div>`;
+
+  // Render radar chart
+  renderCompareRadar(selected, types);
+}
+
+function renderCompareRadar(selected, types) {
+  const labels = types.map(t => TASK_TYPE_LABELS[t]);
+
+  if (compareChart) { compareChart.destroy(); compareChart = null; }
+
+  const canvas = document.getElementById('compare-radar');
+  if (!canvas) return;
+
+  compareChart = new Chart(canvas, {
+    type: 'radar',
+    data: {
+      labels,
+      datasets: selected.map((m, i) => ({
+        label: m.name.split('/').pop(),
+        data: types.map(t => m.type_averages[t] || 0),
+        backgroundColor: COMPARE_COLORS[i].bg,
+        borderColor: COMPARE_COLORS[i].border,
+        borderWidth: 2.5,
+        pointRadius: 4,
+        pointBackgroundColor: COMPARE_COLORS[i].border,
+        pointHoverRadius: 6,
+      })),
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        legend: {
+          position: 'bottom',
+          labels: {
+            color: '#8B8D94',
+            font: { family: 'IBM Plex Sans Thai', size: 12 },
+            boxWidth: 14,
+            padding: 14,
+          },
+        },
+        tooltip: {
+          callbacks: {
+            label: ctx => `${ctx.dataset.label}: ${ctx.raw.toFixed(1)}`,
+          },
+        },
+      },
+      scales: {
+        r: {
+          beginAtZero: true,
+          max: 100,
+          ticks: {
+            stepSize: 20,
+            color: '#5A5D66',
+            font: { family: 'JetBrains Mono', size: 10 },
+            backdropColor: 'transparent',
+          },
+          grid: { color: 'rgba(30,42,74,0.8)' },
+          angleLines: { color: 'rgba(30,42,74,0.8)' },
+          pointLabels: {
+            color: '#8B8D94',
+            font: { family: 'IBM Plex Sans Thai', size: 12 },
+          },
+        },
+      },
+    },
+  });
+}
+
 // ============ TABLE SORT ============
 function setupTableSort() {
   const headers = document.querySelectorAll('#leaderboard-table thead th');
@@ -1382,6 +1991,14 @@ async function init() {
 
   renderLeaderboard();
   renderRadarCharts();
+  populateCompareSelects();
+  // Pre-select top 2 models
+  const displayModels = getDisplayModels();
+  if (displayModels.length >= 2) {
+    document.getElementById('compare-a').value = displayModels[0].name;
+    document.getElementById('compare-b').value = displayModels[1].name;
+    updateComparison();
+  }
   renderTaskBreakdown();
   renderModelCards();
   setupTableSort();
