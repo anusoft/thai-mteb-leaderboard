@@ -1,0 +1,1393 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thai MTEB Benchmark | ผลทดสอบโมเดล Embedding ภาษาไทย</title>
+<meta name="description" content="ผลการทดสอบ Benchmark โมเดล Text Embedding สำหรับภาษาไทย บน LANTA HPC ด้วย MTEB framework">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Thai:wght@400;700;900&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+<style>
+:root {
+  --gold: #C9A84C;
+  --gold-light: #E8D48B;
+  --gold-dim: #8B7332;
+  --navy: #080C1A;
+  --navy-light: #0F1628;
+  --navy-card: #131B33;
+  --navy-border: #1E2A4A;
+  --text: #E8E6E1;
+  --text-dim: #8B8D94;
+  --text-muted: #5A5D66;
+  --green: #4ADE80;
+  --red: #F87171;
+  --orange: #FBBF24;
+  --blue: #60A5FA;
+  --purple: #A78BFA;
+  --pink: #F472B6;
+  --teal: #2DD4BF;
+  --serif: 'Noto Serif Thai', serif;
+  --sans: 'IBM Plex Sans Thai', sans-serif;
+  --mono: 'JetBrains Mono', monospace;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: var(--sans);
+  background: var(--navy);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Noise texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+}
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 24px; }
+
+/* ============ HERO ============ */
+.hero {
+  position: relative;
+  padding: 80px 0 60px;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -200px; right: -200px;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--navy-border), var(--gold-dim), var(--navy-border), transparent);
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 100px;
+  font-size: 13px;
+  color: var(--gold);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  margin-bottom: 24px;
+  animation: fadeIn 0.6s ease;
+}
+
+.hero-badge::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--gold);
+  border-radius: 50%;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.hero h1 {
+  font-family: var(--serif);
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  color: var(--text);
+  margin-bottom: 16px;
+  animation: fadeSlideUp 0.8s ease;
+}
+
+.hero h1 em {
+  font-style: normal;
+  background: linear-gradient(135deg, var(--gold), var(--gold-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-sub {
+  font-size: 1.125rem;
+  color: var(--text-dim);
+  max-width: 640px;
+  line-height: 1.7;
+  animation: fadeSlideUp 0.8s ease 0.1s both;
+}
+
+.hero-stats {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+  animation: fadeSlideUp 0.8s ease 0.2s both;
+}
+
+.hero-stat { text-align: left; }
+
+.hero-stat .num {
+  font-family: var(--mono);
+  font-size: 2rem;
+  font-weight: 500;
+  color: var(--gold);
+}
+
+.hero-stat .label {
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes fadeSlideUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ============ SECTIONS ============ */
+section {
+  padding: 60px 0;
+  position: relative;
+}
+
+section + section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 50%;
+  transform: translateX(-50%);
+  width: min(100%, 1280px);
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--navy-border), transparent);
+}
+
+.section-header {
+  margin-bottom: 32px;
+}
+
+.section-header h2 {
+  font-family: var(--serif);
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.section-header p {
+  color: var(--text-dim);
+  font-size: 0.9375rem;
+}
+
+/* ============ LEADERBOARD TABLE ============ */
+.table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--navy-border);
+  border-radius: 12px;
+  background: var(--navy-card);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+thead {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+thead th {
+  background: var(--navy-light);
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: 600;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  font-size: 0.6875rem;
+  letter-spacing: 0.08em;
+  border-bottom: 1px solid var(--navy-border);
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s;
+  position: relative;
+}
+
+thead th:hover { color: var(--gold); }
+thead th.sort-active { color: var(--gold); }
+
+thead th .sort-arrow {
+  display: inline-block;
+  margin-left: 4px;
+  font-size: 0.5rem;
+  opacity: 0.3;
+  transition: opacity 0.2s;
+}
+
+thead th:hover .sort-arrow { opacity: 0.6; }
+thead th.sort-active .sort-arrow { opacity: 1; }
+
+tbody tr {
+  transition: background 0.2s;
+}
+
+tbody tr:hover { background: rgba(201,168,76,0.04); }
+
+tbody td {
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(30,42,74,0.5);
+  vertical-align: middle;
+}
+
+.rank {
+  font-family: var(--mono);
+  font-weight: 500;
+  color: var(--text-muted);
+  width: 40px;
+}
+
+.rank-1 { color: var(--gold); font-weight: 700; }
+.rank-2 { color: #C0C0C0; font-weight: 700; }
+.rank-3 { color: #CD7F32; font-weight: 700; }
+
+.model-name {
+  font-weight: 600;
+  color: var(--text);
+  white-space: nowrap;
+}
+
+.model-name a {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.model-name a:hover { color: var(--gold); }
+
+.model-org {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 400;
+}
+
+.model-size {
+  font-family: var(--mono);
+  font-size: 0.8125rem;
+  color: var(--text-dim);
+  white-space: nowrap;
+}
+
+.score {
+  font-family: var(--mono);
+  font-weight: 500;
+  text-align: right;
+}
+
+.score-bar-cell {
+  min-width: 160px;
+}
+
+.score-bar-wrap {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.score-bar {
+  flex: 1;
+  height: 6px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.score-bar-fill {
+  height: 100%;
+  border-radius: 3px;
+  transition: width 1s ease;
+}
+
+.score-num {
+  font-family: var(--mono);
+  font-size: 0.875rem;
+  font-weight: 500;
+  min-width: 48px;
+  text-align: right;
+}
+
+.tasks-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.tasks-full { background: rgba(74,222,128,0.1); color: var(--green); }
+.tasks-partial { background: rgba(251,191,36,0.1); color: var(--orange); }
+.tasks-broken { background: rgba(248,113,113,0.1); color: var(--red); }
+
+/* ============ TASK TYPE INFO CARDS ============ */
+.task-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 16px;
+}
+
+.task-info-card {
+  background: var(--navy-card);
+  border: 1px solid var(--navy-border);
+  border-radius: 12px;
+  padding: 20px 24px;
+  transition: border-color 0.3s;
+}
+
+.task-info-card:hover {
+  border-color: rgba(201,168,76,0.3);
+}
+
+.task-info-card-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.task-info-icon {
+  font-size: 1.25rem;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.task-info-card h3 {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.task-info-card h3 span {
+  font-weight: 400;
+  font-size: 0.8125rem;
+  color: var(--text-muted);
+  margin-left: 4px;
+}
+
+.task-info-desc {
+  font-size: 0.875rem;
+  color: var(--text-dim);
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+
+.task-info-datasets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.task-info-datasets .tag {
+  padding: 2px 8px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 4px;
+  font-size: 0.6875rem;
+  font-family: var(--mono);
+  color: var(--text-muted);
+}
+
+/* ============ RADAR CHART ============ */
+.chart-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+@media (max-width: 768px) {
+  .chart-section { grid-template-columns: 1fr; }
+}
+
+.chart-card {
+  background: var(--navy-card);
+  border: 1px solid var(--navy-border);
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.chart-card h3 {
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  margin-bottom: 16px;
+  color: var(--text);
+}
+
+.chart-canvas-wrap {
+  position: relative;
+  aspect-ratio: 1;
+  max-height: 400px;
+  margin: 0 auto;
+}
+
+/* ============ TASK BREAKDOWN ============ */
+.task-type-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+  gap: 20px;
+}
+
+.task-type-card {
+  background: var(--navy-card);
+  border: 1px solid var(--navy-border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.task-type-header {
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid var(--navy-border);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.task-type-header:hover { background: rgba(201,168,76,0.04); }
+
+.task-type-header h3 {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.task-type-count {
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  background: rgba(255,255,255,0.05);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.task-type-body {
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, padding 0.3s ease;
+}
+
+.task-type-card.open .task-type-body {
+  max-height: 2000px;
+  padding: 12px 0;
+}
+
+.task-type-card.open .task-type-header .chevron {
+  transform: rotate(180deg);
+}
+
+.chevron {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  transition: transform 0.3s ease;
+}
+
+.task-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 12px;
+  padding: 8px 20px;
+  font-size: 0.8125rem;
+  align-items: center;
+}
+
+.task-row:hover { background: rgba(255,255,255,0.02); }
+
+.task-row .task-label {
+  color: var(--text-dim);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.task-row .task-score {
+  font-family: var(--mono);
+  font-weight: 500;
+  min-width: 48px;
+  text-align: right;
+}
+
+/* ============ MODEL CARDS ============ */
+.model-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 16px;
+}
+
+.model-card {
+  background: var(--navy-card);
+  border: 1px solid var(--navy-border);
+  border-radius: 12px;
+  padding: 20px;
+  transition: border-color 0.3s, transform 0.2s;
+}
+
+.model-card:hover {
+  border-color: var(--gold-dim);
+  transform: translateY(-2px);
+}
+
+.model-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  margin-bottom: 12px;
+}
+
+.model-card-name {
+  font-weight: 700;
+  font-size: 0.9375rem;
+}
+
+.model-card-name a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.model-card-name a:hover { color: var(--gold); }
+
+.model-card-score {
+  font-family: var(--mono);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.model-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.meta-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 10px;
+  background: rgba(255,255,255,0.04);
+  border-radius: 6px;
+  font-size: 0.75rem;
+  color: var(--text-dim);
+}
+
+/* ============ METHODOLOGY ============ */
+.method-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.method-card {
+  background: var(--navy-card);
+  border: 1px solid var(--navy-border);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.method-card h4 {
+  font-size: 0.8125rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--text-muted);
+  margin-bottom: 8px;
+}
+
+.method-card p {
+  font-size: 0.9375rem;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.method-card .detail {
+  font-size: 0.8125rem;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+
+/* ============ ACKNOWLEDGMENT ============ */
+.ack-card {
+  background: linear-gradient(135deg, rgba(201,168,76,0.06), rgba(201,168,76,0.02));
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 12px;
+  padding: 28px 32px;
+  margin-top: 24px;
+}
+
+.ack-card h3 {
+  font-family: var(--serif);
+  font-size: 1.125rem;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+
+.ack-card p {
+  font-size: 0.9375rem;
+  color: var(--text-dim);
+  line-height: 1.7;
+}
+
+.ack-card a {
+  color: var(--gold);
+  text-decoration: none;
+  border-bottom: 1px solid rgba(201,168,76,0.3);
+  transition: border-color 0.2s;
+}
+
+.ack-card a:hover { border-color: var(--gold); }
+
+/* ============ FOOTER ============ */
+footer {
+  padding: 40px 0;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.8125rem;
+  border-top: 1px solid var(--navy-border);
+}
+
+footer a {
+  color: var(--gold-dim);
+  text-decoration: none;
+}
+
+footer a:hover { color: var(--gold); }
+
+/* ============ UTILITIES ============ */
+.sr-only {
+  position: absolute;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
+
+@media (max-width: 640px) {
+  .hero-stats { flex-wrap: wrap; gap: 24px; }
+  .task-type-grid { grid-template-columns: 1fr; }
+  .task-info-grid { grid-template-columns: 1fr; }
+  .model-cards { grid-template-columns: 1fr; }
+  .chart-section { grid-template-columns: 1fr; }
+  table { font-size: 0.8125rem; }
+  thead th, tbody td { padding: 10px 12px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ====== HERO ====== -->
+<header class="hero">
+  <div class="container">
+    <div class="hero-badge">MTEB v2.10.0 &middot; LANTA Supercomputer</div>
+    <h1>ผลทดสอบ <em>Thai MTEB</em></h1>
+    <p class="hero-sub">
+      Benchmark โมเดล Text Embedding สำหรับภาษาไทย ครอบคลุม 28 ชุดทดสอบ
+      ใน 7 ประเภทงาน ประมวลผลบน LANTA Supercomputer ด้วย NVIDIA A100 GPUs
+      สนับสนุนทรัพยากรโดย ThaiSC/NSTDA
+    </p>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="num" id="stat-models">--</div>
+        <div class="label">Models</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">28</div>
+        <div class="label">Tasks</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">7</div>
+        <div class="label">Task Types</div>
+      </div>
+      <div class="hero-stat">
+        <div class="num">A100</div>
+        <div class="label">40GB GPUs</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ====== LEADERBOARD ====== -->
+<section id="leaderboard">
+  <div class="container">
+    <div class="section-header">
+      <h2>ตารางผลคะแนน</h2>
+      <p>Leaderboard &mdash; เรียงตามคะแนนเฉลี่ย (Average Score) จาก 28 ชุดทดสอบภาษาไทย &middot; คลิกหัวคอลัมน์เพื่อเรียงลำดับ</p>
+    </div>
+    <div class="table-wrap">
+      <table id="leaderboard-table">
+        <thead>
+          <tr>
+            <th class="sort-active" data-sort="rank"># <span class="sort-arrow">&#9660;</span></th>
+            <th data-sort="name">Model <span class="sort-arrow">&#9650;&#9660;</span></th>
+            <th data-sort="size">Size <span class="sort-arrow">&#9650;&#9660;</span></th>
+            <th data-sort="avg">AVG Score <span class="sort-arrow">&#9650;&#9660;</span></th>
+            <th data-sort="bitext">BitextMining <span class="sort-arrow">&#9650;&#9660;</span></th>
+            <th data-sort="cls">Classification <span class="sort-arrow">&#9650;&#9660;</span></th>
+            <th data-sort="cluster">Clustering <span class="sort-arrow">&#9650;&#9660;</span></th>
+            <th data-sort="pair">PairCls <span class="sort-arrow">&#9650;&#9660;</span></th>
+            <th data-sort="rerank">Reranking <span class="sort-arrow">&#9650;&#9660;</span></th>
+            <th data-sort="retrieval">Retrieval <span class="sort-arrow">&#9650;&#9660;</span></th>
+            <th data-sort="tasks">Tasks <span class="sort-arrow">&#9650;&#9660;</span></th>
+          </tr>
+        </thead>
+        <tbody id="leaderboard-body"></tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ====== TASK TYPE INFO ====== -->
+<section id="task-info">
+  <div class="container">
+    <div class="section-header">
+      <h2>ประเภทการทดสอบ</h2>
+      <p>Task Types &mdash; รายละเอียดการทดสอบแต่ละประเภทสำหรับภาษาไทย</p>
+    </div>
+    <div class="task-info-grid">
+
+      <div class="task-info-card">
+        <div class="task-info-card-header">
+          <div class="task-info-icon" style="background:rgba(96,165,250,0.1);color:var(--blue)">&#x21C4;</div>
+          <h3>Bitext Mining <span>(6 tasks)</span></h3>
+        </div>
+        <div class="task-info-desc">
+          ค้นหาคู่ประโยคที่มีความหมายเดียวกันระหว่างภาษาไทยกับภาษาอื่น ครอบคลุมแหล่งข้อมูลหลากหลาย ตั้งแต่คัมภีร์ไบเบิล (BibleNLP) คลังประโยคคู่ขนาน (FLORES, NTREX, Tatoeba) ไปจนถึง FAQ ภาษาไทยบนเว็บไซต์ โมเดลส่วนใหญ่ทำได้ดีในหมวดนี้เนื่องจากมีข้อมูลคู่ภาษาไทย-อังกฤษจำนวนมากในการเทรน
+        </div>
+        <div class="task-info-datasets">
+          <span class="tag">BibleNLP</span>
+          <span class="tag">FLORES</span>
+          <span class="tag">NTREX</span>
+          <span class="tag">Tatoeba</span>
+          <span class="tag">WebFAQ-QAs</span>
+          <span class="tag">WebFAQ-Questions</span>
+        </div>
+      </div>
+
+      <div class="task-info-card">
+        <div class="task-info-card-header">
+          <div class="task-info-icon" style="background:rgba(74,222,128,0.1);color:var(--green)">&#x2630;</div>
+          <h3>Classification <span>(9 tasks)</span></h3>
+        </div>
+        <div class="task-info-desc">
+          จำแนกข้อความภาษาไทยเป็นหมวดหมู่ต่างๆ รวมถึงการวิเคราะห์ความรู้สึก (Wisesight, Wongnai) การจำแนกเจตนาและสถานการณ์ (MASSIVE) การจัดหมวดหมู่หัวข้อ (SIB-200) และการตรวจจับภาษา เป็นหมวดที่สะท้อนความเข้าใจบริบทและความหมายภาษาไทยได้ชัดเจนที่สุด
+        </div>
+        <div class="task-info-datasets">
+          <span class="tag">Wisesight</span>
+          <span class="tag">Wongnai</span>
+          <span class="tag">MASSIVE-Intent</span>
+          <span class="tag">MASSIVE-Scenario</span>
+          <span class="tag">MTOP-Domain</span>
+          <span class="tag">MTOP-Intent</span>
+          <span class="tag">SIB-200</span>
+          <span class="tag">MultiSentiment</span>
+          <span class="tag">LangDetect</span>
+        </div>
+      </div>
+
+      <div class="task-info-card">
+        <div class="task-info-card-header">
+          <div class="task-info-icon" style="background:rgba(167,139,250,0.1);color:var(--purple)">&#x25CE;</div>
+          <h3>Clustering <span>(1 task)</span></h3>
+        </div>
+        <div class="task-info-desc">
+          จัดกลุ่มข้อความภาษาไทยที่มีเนื้อหาเกี่ยวข้องกันโดยไม่ต้องมี label กำหนดล่วงหน้า ใช้ชุดข้อมูล SIB-200 ที่ครอบคลุม 200 ภาษา ทดสอบว่าโมเดลสามารถสร้าง embedding ที่จับกลุ่มความหมายได้ดีเพียงใด
+        </div>
+        <div class="task-info-datasets">
+          <span class="tag">SIB200-ClusteringS2S</span>
+        </div>
+      </div>
+
+      <div class="task-info-card">
+        <div class="task-info-card-header">
+          <div class="task-info-icon" style="background:rgba(244,114,182,0.1);color:var(--pink)">&#x21CB;</div>
+          <h3>Pair Classification <span>(1 task)</span></h3>
+        </div>
+        <div class="task-info-desc">
+          ประเมินความสัมพันธ์ระหว่างคู่ประโยคภาษาไทย ผ่านงาน Natural Language Inference (XNLI) ซึ่งต้องตัดสินว่าประโยคที่สองเป็นผลที่ตามมา (entailment) ขัดแย้ง (contradiction) หรือไม่เกี่ยวข้อง (neutral) กับประโยคแรก
+        </div>
+        <div class="task-info-datasets">
+          <span class="tag">XNLI</span>
+        </div>
+      </div>
+
+      <div class="task-info-card">
+        <div class="task-info-card-header">
+          <div class="task-info-icon" style="background:rgba(251,191,36,0.1);color:var(--orange)">&#x2195;</div>
+          <h3>Reranking <span>(2 tasks)</span></h3>
+        </div>
+        <div class="task-info-desc">
+          เรียงลำดับเอกสารใหม่ตามความเกี่ยวข้องกับคำถามภาษาไทย ใช้ MIRACL (ค้นหาบทความ Wikipedia) และ MultiLongDoc (เอกสารยาว) เป็นหมวดที่ต้องใช้หน่วยความจำ GPU ค่อนข้างมาก โมเดลขนาดใหญ่บางตัวอาจไม่สามารถรันได้บน A100 40GB
+        </div>
+        <div class="task-info-datasets">
+          <span class="tag">MIRACL</span>
+          <span class="tag">MultiLongDoc</span>
+        </div>
+      </div>
+
+      <div class="task-info-card">
+        <div class="task-info-card-header">
+          <div class="task-info-icon" style="background:rgba(248,113,113,0.1);color:var(--red)">&#x1F50D;</div>
+          <h3>Retrieval <span>(9 tasks)</span></h3>
+        </div>
+        <div class="task-info-desc">
+          ค้นหาเอกสารที่ตรงกับคำถามภาษาไทยจากฐานข้อมูลขนาดใหญ่ ครอบคลุม MIRACL, MrTyDi, XQuAD, Belebele, MKQA และ WebFAQ เป็นหมวดที่ท้าทายที่สุดและใช้ GPU memory สูงสุด โมเดลขนาด 7B+ มักล้มเหลวเนื่องจาก out-of-memory บน GPU 40GB
+        </div>
+        <div class="task-info-datasets">
+          <span class="tag">MIRACL</span>
+          <span class="tag">MIRACL-HN</span>
+          <span class="tag">MIRACL-HN.v2</span>
+          <span class="tag">MrTyDi</span>
+          <span class="tag">Belebele</span>
+          <span class="tag">MKQA</span>
+          <span class="tag">MultiLongDoc</span>
+          <span class="tag">WebFAQ</span>
+          <span class="tag">XQuAD</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ====== RADAR CHART ====== -->
+<section id="charts">
+  <div class="container">
+    <div class="section-header">
+      <h2>เปรียบเทียบความสามารถ</h2>
+      <p>Radar Chart &mdash; เปรียบเทียบคะแนนรวมตามประเภทงาน สำหรับโมเดลหลัก</p>
+    </div>
+    <div class="chart-section">
+      <div class="chart-card">
+        <h3>Top 4 โมเดล</h3>
+        <div class="chart-canvas-wrap">
+          <canvas id="radar-top"></canvas>
+        </div>
+      </div>
+      <div class="chart-card">
+        <h3>ทุกโมเดลที่ผ่านเกณฑ์</h3>
+        <div class="chart-canvas-wrap">
+          <canvas id="radar-all"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== TASK BREAKDOWN ====== -->
+<section id="tasks">
+  <div class="container">
+    <div class="section-header">
+      <h2>คะแนนรายชุดทดสอบ</h2>
+      <p>Task Breakdown &mdash; คะแนนแยกตามชุดทดสอบย่อย แบ่งตามประเภทงาน</p>
+    </div>
+    <div class="task-type-grid" id="task-breakdown"></div>
+  </div>
+</section>
+
+<!-- ====== MODEL CARDS ====== -->
+<section id="models">
+  <div class="container">
+    <div class="section-header">
+      <h2>รายละเอียดโมเดล</h2>
+      <p>Model Details &mdash; ข้อมูลสำคัญของแต่ละโมเดล</p>
+    </div>
+    <div class="model-cards" id="model-cards"></div>
+  </div>
+</section>
+
+<!-- ====== METHODOLOGY ====== -->
+<section id="methodology">
+  <div class="container">
+    <div class="section-header">
+      <h2>วิธีการทดสอบ</h2>
+      <p>Methodology &mdash; รายละเอียดสภาพแวดล้อมและขั้นตอนการทดสอบ</p>
+    </div>
+    <div class="method-grid">
+      <div class="method-card">
+        <h4>Compute</h4>
+        <p>LANTA Supercomputer</p>
+        <div class="detail">Cray EX &bull; NVIDIA A100-SXM4-40GB GPUs</div>
+      </div>
+      <div class="method-card">
+        <h4>Framework</h4>
+        <p>MTEB v2.10.0</p>
+        <div class="detail">sentence-transformers 5.2.3 &bull; PyTorch 2.10.0+cu128</div>
+      </div>
+      <div class="method-card">
+        <h4>Evaluation</h4>
+        <p>28 Thai Tasks</p>
+        <div class="detail">7 task types &bull; languages=["tha"] filter &bull; trust_remote_code</div>
+      </div>
+      <div class="method-card">
+        <h4>Precision</h4>
+        <p>Full / Auto</p>
+        <div class="detail">โมเดลโหลดด้วย precision ตาม config ดั้งเดิม (fp32/fp16/bf16)</div>
+      </div>
+    </div>
+
+    <!-- ThaiSC Acknowledgment -->
+    <div class="ack-card">
+      <h3>กิตติกรรมประกาศ &mdash; Acknowledgment</h3>
+      <p>
+        ผลการทดสอบครั้งนี้ได้รับการสนับสนุนทรัพยากรการประมวลผลจาก
+        <a href="https://thaisc.io/" target="_blank">ศูนย์ทรัพยากรคอมพิวเตอร์เพื่อการคำนวณขั้นสูง (ThaiSC)</a>
+        ภายใต้
+        <a href="https://www.nstda.or.th/" target="_blank">สำนักงานพัฒนาวิทยาศาสตร์และเทคโนโลยีแห่งชาติ (สวทช./NSTDA)</a>
+        ผ่านระบบ LANTA Supercomputer โดยไม่มีค่าใช้จ่าย ขอขอบคุณ ThaiSC ที่เปิดโอกาสให้นักวิจัยและชุมชน AI ไทยเข้าถึงทรัพยากรคำนวณระดับโลก
+      </p>
+      <p style="margin-top:12px">
+        This benchmark was made possible by the free computing resources provided by the
+        <a href="https://thaisc.io/" target="_blank">Thailand Supercomputer Center (ThaiSC)</a>
+        under the
+        <a href="https://www.nstda.or.th/" target="_blank">National Science and Technology Development Agency (NSTDA)</a>
+        through the LANTA Supercomputer. We are deeply grateful for ThaiSC's commitment to supporting
+        AI research and the Thai developer community.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<footer>
+  <div class="container">
+    <p>
+      ผลทดสอบ Thai MTEB &mdash;
+      ประมวลผลบน <a href="https://thaisc.io/" target="_blank">LANTA Supercomputer</a> สนับสนุนโดย <a href="https://thaisc.io/" target="_blank">ThaiSC</a>/<a href="https://www.nstda.or.th/" target="_blank">NSTDA</a> &bull;
+      ใช้ <a href="https://github.com/embeddings-benchmark/mteb" target="_blank">MTEB Framework</a> &bull;
+      ข้อมูลเปิดเผยภายใต้ MIT License
+    </p>
+    <p style="margin-top:8px; color: var(--text-muted);">
+      Updated 2026-03-03
+    </p>
+  </div>
+</footer>
+
+<script>
+// ============ DATA ============
+let DATA = null;
+
+// Fallback parameter counts for models where MTEB didn't auto-detect
+const MODEL_PARAMS_FALLBACK = {
+  'tencent/KaLM-Embedding-Gemma3-12B-2511': 12255000000,
+  'jinaai/jina-embeddings-v5-text-small': 281000000,
+  'Octen/Octen-Embedding-8B': 8030000000,
+  'ICT-TIME-and-Querit/BOOM_4B_v1': 3890000000,
+  'google/embeddinggemma-300m': 300000000,
+  'jinaai/jina-embeddings-v5-text-nano': 98000000,
+  'jinaai/jina-embeddings-v5-text-nano-retrieval': 98000000,
+};
+
+const TASK_TYPE_ICONS = {
+  BitextMining: '&#x21C4;',
+  Classification: '&#x2630;',
+  Clustering: '&#x25CE;',
+  PairClassification: '&#x21CB;',
+  Reranking: '&#x2195;',
+  Retrieval: '&#x1F50D;',
+};
+
+const TASK_TYPE_LABELS = {
+  BitextMining: 'Bitext Mining',
+  Classification: 'Classification',
+  Clustering: 'Clustering',
+  PairClassification: 'Pair Classification',
+  Reranking: 'Reranking',
+  Retrieval: 'Retrieval',
+};
+
+const CHART_COLORS = [
+  { bg: 'rgba(201,168,76,0.15)', border: '#C9A84C' },
+  { bg: 'rgba(96,165,250,0.15)', border: '#60A5FA' },
+  { bg: 'rgba(74,222,128,0.15)', border: '#4ADE80' },
+  { bg: 'rgba(167,139,250,0.15)', border: '#A78BFA' },
+  { bg: 'rgba(244,114,182,0.15)', border: '#F472B6' },
+  { bg: 'rgba(251,191,36,0.15)', border: '#FBBF24' },
+  { bg: 'rgba(248,113,113,0.15)', border: '#F87171' },
+  { bg: 'rgba(45,212,191,0.15)', border: '#2DD4BF' },
+];
+
+// Minimum avg score threshold to display in the leaderboard
+const MIN_SCORE_THRESHOLD = 50;
+
+function getModelParams(m) {
+  if (m.meta.n_parameters) return m.meta.n_parameters;
+  return MODEL_PARAMS_FALLBACK[m.name] || null;
+}
+
+function formatParams(n) {
+  if (!n) return '?';
+  if (n >= 1e9) return (n / 1e9).toFixed(1) + 'B';
+  return Math.round(n / 1e6) + 'M';
+}
+
+function scoreColor(score) {
+  if (score >= 70) return 'var(--green)';
+  if (score >= 50) return 'var(--gold)';
+  if (score >= 30) return 'var(--orange)';
+  return 'var(--red)';
+}
+
+function scoreGradient(score) {
+  if (score >= 70) return 'linear-gradient(90deg, #065F46, #4ADE80)';
+  if (score >= 50) return 'linear-gradient(90deg, #78350F, #C9A84C)';
+  if (score >= 30) return 'linear-gradient(90deg, #78350F, #FBBF24)';
+  return 'linear-gradient(90deg, #7F1D1D, #F87171)';
+}
+
+function hfLink(name) {
+  return `https://huggingface.co/${name}`;
+}
+
+// Filter models: only show those with avg_score >= threshold
+function getDisplayModels() {
+  return DATA.models.filter(m => m.avg_score >= MIN_SCORE_THRESHOLD);
+}
+
+// ============ LEADERBOARD ============
+let currentSort = { key: 'avg', asc: false };
+
+function renderLeaderboard() {
+  let models = getDisplayModels();
+
+  // Sort
+  models = sortModels(models, currentSort.key, currentSort.asc);
+
+  document.getElementById('stat-models').textContent = models.length;
+
+  const tbody = document.getElementById('leaderboard-body');
+  tbody.innerHTML = '';
+
+  const types = ['BitextMining','Classification','Clustering','PairClassification','Reranking','Retrieval'];
+
+  models.forEach((m, i) => {
+    const rank = i + 1;
+    const rankCls = `rank-${rank}`;
+    const [org, name] = m.name.includes('/') ? m.name.split('/') : ['', m.name];
+    const params = getModelParams(m);
+    const paramStr = formatParams(params);
+
+    let tasksBadge;
+    if (m.tasks_completed === m.tasks_total) {
+      tasksBadge = `<span class="tasks-badge tasks-full">${m.tasks_completed}/${m.tasks_total}</span>`;
+    } else {
+      tasksBadge = `<span class="tasks-badge tasks-partial">${m.tasks_completed}/${m.tasks_total}</span>`;
+    }
+
+    const typeCells = types.map(t => {
+      const val = m.type_averages[t];
+      if (val === undefined) return '<td class="score" style="color:var(--text-muted)">—</td>';
+      return `<td class="score" style="color:${scoreColor(val)}">${val.toFixed(1)}</td>`;
+    }).join('');
+
+    const barWidth = (m.avg_score / 100) * 100;
+
+    tbody.innerHTML += `
+      <tr>
+        <td class="rank ${rankCls}">${rank}</td>
+        <td class="model-name">
+          <a href="${hfLink(m.name)}" target="_blank">${name}</a>
+          <div class="model-org">${org}</div>
+        </td>
+        <td class="model-size">${paramStr}</td>
+        <td class="score-bar-cell">
+          <div class="score-bar-wrap">
+            <div class="score-bar">
+              <div class="score-bar-fill" style="width:${barWidth}%; background:${scoreGradient(m.avg_score)}"></div>
+            </div>
+            <span class="score-num" style="color:${scoreColor(m.avg_score)}">${m.avg_score.toFixed(1)}</span>
+          </div>
+        </td>
+        ${typeCells}
+        <td>${tasksBadge}</td>
+      </tr>
+    `;
+  });
+
+  // Update sort indicators
+  document.querySelectorAll('#leaderboard-table thead th').forEach(th => {
+    th.classList.remove('sort-active', 'sort-asc');
+    if (th.dataset.sort === currentSort.key || (currentSort.key === 'avg' && th.dataset.sort === 'rank')) {
+      th.classList.add('sort-active');
+      if (currentSort.asc) th.classList.add('sort-asc');
+    }
+  });
+}
+
+function sortModels(models, key, asc) {
+  const typeMap = { bitext: 'BitextMining', cls: 'Classification', cluster: 'Clustering',
+    pair: 'PairClassification', rerank: 'Reranking', retrieval: 'Retrieval' };
+
+  return [...models].sort((a, b) => {
+    let va, vb;
+    if (key === 'rank' || key === 'avg') {
+      va = a.avg_score; vb = b.avg_score;
+    } else if (key === 'name') {
+      va = a.name; vb = b.name;
+      return asc ? vb.localeCompare(va) : va.localeCompare(vb);
+    } else if (key === 'size') {
+      va = getModelParams(a) || 0;
+      vb = getModelParams(b) || 0;
+    } else if (key === 'tasks') {
+      va = a.tasks_completed; vb = b.tasks_completed;
+    } else if (typeMap[key]) {
+      va = a.type_averages[typeMap[key]] || 0;
+      vb = b.type_averages[typeMap[key]] || 0;
+    } else return 0;
+    return asc ? va - vb : vb - va;
+  });
+}
+
+// ============ RADAR CHARTS ============
+function renderRadarCharts() {
+  const types = ['BitextMining','Classification','Clustering','PairClassification','Reranking','Retrieval'];
+  const labels = types.map(t => TASK_TYPE_LABELS[t]);
+  const displayModels = getDisplayModels();
+
+  const radarOpts = {
+    responsive: true,
+    maintainAspectRatio: true,
+    plugins: {
+      legend: {
+        position: 'bottom',
+        labels: {
+          color: '#8B8D94',
+          font: { family: 'IBM Plex Sans Thai', size: 11 },
+          boxWidth: 12,
+          padding: 12,
+        },
+      },
+    },
+    scales: {
+      r: {
+        beginAtZero: true,
+        max: 100,
+        ticks: {
+          stepSize: 20,
+          color: '#5A5D66',
+          font: { family: 'JetBrains Mono', size: 9 },
+          backdropColor: 'transparent',
+        },
+        grid: { color: 'rgba(30,42,74,0.8)' },
+        angleLines: { color: 'rgba(30,42,74,0.8)' },
+        pointLabels: {
+          color: '#8B8D94',
+          font: { family: 'IBM Plex Sans Thai', size: 11 },
+        },
+      },
+    },
+  };
+
+  // Top 4 models radar
+  const topModels = displayModels.slice(0, 4);
+
+  new Chart(document.getElementById('radar-top'), {
+    type: 'radar',
+    data: {
+      labels,
+      datasets: topModels.map((m, i) => ({
+        label: m.name.split('/').pop(),
+        data: types.map(t => m.type_averages[t] || 0),
+        backgroundColor: CHART_COLORS[i].bg,
+        borderColor: CHART_COLORS[i].border,
+        borderWidth: 2,
+        pointRadius: 3,
+        pointBackgroundColor: CHART_COLORS[i].border,
+      })),
+    },
+    options: radarOpts,
+  });
+
+  // All qualifying models radar
+  new Chart(document.getElementById('radar-all'), {
+    type: 'radar',
+    data: {
+      labels,
+      datasets: displayModels.map((m, i) => ({
+        label: m.name.split('/').pop(),
+        data: types.map(t => m.type_averages[t] || 0),
+        backgroundColor: CHART_COLORS[i % CHART_COLORS.length].bg,
+        borderColor: CHART_COLORS[i % CHART_COLORS.length].border,
+        borderWidth: displayModels.length > 5 ? 1.5 : 2,
+        pointRadius: displayModels.length > 5 ? 2 : 3,
+        pointBackgroundColor: CHART_COLORS[i % CHART_COLORS.length].border,
+      })),
+    },
+    options: radarOpts,
+  });
+}
+
+// ============ TASK BREAKDOWN ============
+function renderTaskBreakdown() {
+  const container = document.getElementById('task-breakdown');
+  container.innerHTML = '';
+
+  const displayModels = getDisplayModels();
+  if (!displayModels.length) return;
+
+  const typeGroups = {};
+  DATA.task_types.forEach(t => { typeGroups[t] = []; });
+
+  // Collect tasks from all display models
+  displayModels.forEach(m => {
+    m.task_results.forEach(r => {
+      if (typeGroups[r.task_type] && !typeGroups[r.task_type].includes(r.task)) {
+        typeGroups[r.task_type].push(r.task);
+      }
+    });
+  });
+
+  for (const [type, tasks] of Object.entries(typeGroups)) {
+    if (tasks.length === 0) continue;
+
+    const card = document.createElement('div');
+    card.className = 'task-type-card';
+
+    let body = '';
+    // Header row with model names
+    body += `<div class="task-row" style="border-bottom:1px solid var(--navy-border);padding-bottom:8px;margin-bottom:4px;">
+      <div class="task-label" style="font-weight:600;color:var(--text)">Task</div>
+      ${displayModels.slice(0, 4).map(m => `<div class="task-score" style="color:var(--text-dim);font-size:0.6875rem">${m.name.split('/').pop().substring(0, 12)}</div>`).join('')}
+    </div>`;
+
+    tasks.sort().forEach(task => {
+      const scores = displayModels.slice(0, 4).map(m => {
+        const r = m.task_results.find(t => t.task === task);
+        return r ? `<div class="task-score" style="color:${scoreColor(r.score)}">${r.score.toFixed(1)}</div>` :
+          '<div class="task-score" style="color:var(--text-muted)">—</div>';
+      }).join('');
+
+      body += `<div class="task-row" style="grid-template-columns:1fr ${displayModels.slice(0,4).map(() => 'auto').join(' ')}">
+        <div class="task-label">${task}</div>
+        ${scores}
+      </div>`;
+    });
+
+    card.innerHTML = `
+      <div class="task-type-header" onclick="this.parentElement.classList.toggle('open')">
+        <h3>${TASK_TYPE_ICONS[type] || ''} ${TASK_TYPE_LABELS[type] || type}</h3>
+        <div style="display:flex;align-items:center;gap:8px">
+          <span class="task-type-count">${tasks.length} tasks</span>
+          <span class="chevron">&#x25BC;</span>
+        </div>
+      </div>
+      <div class="task-type-body">${body}</div>
+    `;
+    container.appendChild(card);
+  }
+}
+
+// ============ MODEL CARDS ============
+function renderModelCards() {
+  const container = document.getElementById('model-cards');
+  container.innerHTML = '';
+
+  const displayModels = getDisplayModels();
+
+  displayModels.forEach(m => {
+    const [org, name] = m.name.includes('/') ? m.name.split('/') : ['', m.name];
+
+    const params = getModelParams(m);
+    const paramStr = formatParams(params);
+    const maxTok = m.meta.max_tokens ? `${m.meta.max_tokens}` : '?';
+    const dim = m.meta.embed_dim || '?';
+    const license = m.meta.license || '?';
+
+    const tags = [
+      `<span class="meta-tag">${paramStr} params</span>`,
+      `<span class="meta-tag">${maxTok} tokens</span>`,
+      `<span class="meta-tag">${dim}d</span>`,
+      `<span class="meta-tag">${license}</span>`,
+    ];
+
+    container.innerHTML += `
+      <div class="model-card">
+        <div class="model-card-header">
+          <div class="model-card-name">
+            <a href="${hfLink(m.name)}" target="_blank">${name}</a>
+            <div class="model-org">${org}</div>
+          </div>
+          <div class="model-card-score" style="color:var(--gold)">
+            ${m.avg_score.toFixed(1)}
+          </div>
+        </div>
+        <div class="model-card-meta">${tags.join('')}</div>
+      </div>
+    `;
+  });
+}
+
+// ============ TABLE SORT ============
+function setupTableSort() {
+  const headers = document.querySelectorAll('#leaderboard-table thead th');
+  headers.forEach(th => {
+    th.addEventListener('click', () => {
+      const sortKey = th.dataset.sort;
+      if (!sortKey) return;
+
+      // Toggle direction if same column
+      if (currentSort.key === sortKey || (sortKey === 'rank' && currentSort.key === 'avg')) {
+        currentSort.asc = !currentSort.asc;
+      } else {
+        currentSort.key = sortKey;
+        currentSort.asc = false;
+      }
+
+      renderLeaderboard();
+    });
+  });
+}
+
+// ============ INIT ============
+async function init() {
+  try {
+    const resp = await fetch('data/results.json');
+    DATA = await resp.json();
+  } catch (e) {
+    console.error('Failed to load results.json:', e);
+    document.body.innerHTML = '<p style="padding:40px;text-align:center;color:#F87171">Failed to load data. Ensure data/results.json exists.</p>';
+    return;
+  }
+
+  renderLeaderboard();
+  renderRadarCharts();
+  renderTaskBreakdown();
+  renderModelCards();
+  setupTableSort();
+}
+
+document.addEventListener('DOMContentLoaded', init);
+</script>
+</body>
+</html>

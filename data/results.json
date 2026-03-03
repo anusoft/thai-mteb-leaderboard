@@ -1,0 +1,4415 @@
+{
+  "generated_at": "2026-03-03T16:11:08.299114",
+  "mteb_version": "2.10.0",
+  "benchmark": "Thai MTEB",
+  "n_tasks": 28,
+  "task_types": [
+    "BitextMining",
+    "Classification",
+    "Clustering",
+    "PairClassification",
+    "Reranking",
+    "Retrieval"
+  ],
+  "models": [
+    {
+      "name": "Qwen/Qwen3-Embedding-4B",
+      "name_safe": "Qwen__Qwen3-Embedding-4B",
+      "tasks_completed": 19,
+      "tasks_total": 28,
+      "avg_score": 78.93,
+      "type_averages": {
+        "Classification": 74.84,
+        "Retrieval": 67.65,
+        "BitextMining": 92.98,
+        "Clustering": 55.76,
+        "PairClassification": 84.39
+      },
+      "task_results": [
+        {
+          "task": "BelebeleRetrieval",
+          "task_type": "Retrieval",
+          "score": 93.68,
+          "split": "test",
+          "n_subsets": 3,
+          "main_metric": "BelebeleRetrieval"
+        },
+        {
+          "task": "BibleNLPBitextMining",
+          "task_type": "BitextMining",
+          "score": 98.47,
+          "split": "train",
+          "n_subsets": 2,
+          "main_metric": "BibleNLPBitextMining"
+        },
+        {
+          "task": "FloresBitextMining",
+          "task_type": "BitextMining",
+          "score": 85.17,
+          "split": "devtest",
+          "n_subsets": 406,
+          "main_metric": "FloresBitextMining"
+        },
+        {
+          "task": "LanguageClassification",
+          "task_type": "Classification",
+          "score": 85.14,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "LanguageClassification"
+        },
+        {
+          "task": "MKQARetrieval",
+          "task_type": "Retrieval",
+          "score": 13.27,
+          "split": "train",
+          "n_subsets": 1,
+          "main_metric": "MKQARetrieval"
+        },
+        {
+          "task": "MTOPDomainClassification",
+          "task_type": "Classification",
+          "score": 91.62,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPDomainClassification"
+        },
+        {
+          "task": "MTOPIntentClassification",
+          "task_type": "Classification",
+          "score": 84.64,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPIntentClassification"
+        },
+        {
+          "task": "MassiveIntentClassification",
+          "task_type": "Classification",
+          "score": 76.39,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveIntentClassification"
+        },
+        {
+          "task": "MassiveScenarioClassification",
+          "task_type": "Classification",
+          "score": 83.63,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveScenarioClassification"
+        },
+        {
+          "task": "MultilingualSentimentClassification",
+          "task_type": "Classification",
+          "score": 65.38,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultilingualSentimentClassification"
+        },
+        {
+          "task": "NTREXBitextMining",
+          "task_type": "BitextMining",
+          "score": 81.1,
+          "split": "test",
+          "n_subsets": 14,
+          "main_metric": "NTREXBitextMining"
+        },
+        {
+          "task": "SIB200Classification",
+          "task_type": "Classification",
+          "score": 81.08,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200Classification"
+        },
+        {
+          "task": "SIB200ClusteringS2S",
+          "task_type": "Clustering",
+          "score": 55.76,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200ClusteringS2S"
+        },
+        {
+          "task": "Tatoeba",
+          "task_type": "BitextMining",
+          "score": 96.65,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "Tatoeba"
+        },
+        {
+          "task": "WebFAQBitextMiningQAs",
+          "task_type": "BitextMining",
+          "score": 98.46,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQAs"
+        },
+        {
+          "task": "WebFAQBitextMiningQuestions",
+          "task_type": "BitextMining",
+          "score": 98.0,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQuestions"
+        },
+        {
+          "task": "WisesightSentimentClassification.v2",
+          "task_type": "Classification",
+          "score": 30.82,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WisesightSentimentClassification.v2"
+        },
+        {
+          "task": "XNLI",
+          "task_type": "PairClassification",
+          "score": 84.39,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "XNLI"
+        },
+        {
+          "task": "XQuADRetrieval",
+          "task_type": "Retrieval",
+          "score": 96.01,
+          "split": "validation",
+          "n_subsets": 1,
+          "main_metric": "XQuADRetrieval"
+        }
+      ],
+      "meta": {
+        "revision": "636cd9bf47d976946cdbb2b0c3ca0cb2f8eea5ff",
+        "release_date": "2025-06-05",
+        "n_parameters": 4021774336,
+        "max_tokens": 32768.0,
+        "embed_dim": 2560,
+        "license": "apache-2.0",
+        "framework": [
+          "Sentence Transformers",
+          "PyTorch",
+          "safetensors",
+          "Transformers"
+        ],
+        "open_weights": true,
+        "similarity_fn_name": "cosine"
+      }
+    },
+    {
+      "name": "tencent/KaLM-Embedding-Gemma3-12B-2511",
+      "name_safe": "tencent__KaLM-Embedding-Gemma3-12B-2511",
+      "tasks_completed": 19,
+      "tasks_total": 28,
+      "avg_score": 76.37,
+      "type_averages": {
+        "Classification": 73.28,
+        "Retrieval": 65.41,
+        "BitextMining": 92.45,
+        "Clustering": 44.31,
+        "PairClassification": 69.58
+      },
+      "task_results": [
+        {
+          "task": "BelebeleRetrieval",
+          "task_type": "Retrieval",
+          "score": 87.78,
+          "split": "test",
+          "n_subsets": 3,
+          "main_metric": "BelebeleRetrieval"
+        },
+        {
+          "task": "BibleNLPBitextMining",
+          "task_type": "BitextMining",
+          "score": 97.14,
+          "split": "train",
+          "n_subsets": 2,
+          "main_metric": "BibleNLPBitextMining"
+        },
+        {
+          "task": "FloresBitextMining",
+          "task_type": "BitextMining",
+          "score": 86.28,
+          "split": "devtest",
+          "n_subsets": 406,
+          "main_metric": "FloresBitextMining"
+        },
+        {
+          "task": "LanguageClassification",
+          "task_type": "Classification",
+          "score": 98.91,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "LanguageClassification"
+        },
+        {
+          "task": "MKQARetrieval",
+          "task_type": "Retrieval",
+          "score": 14.34,
+          "split": "train",
+          "n_subsets": 1,
+          "main_metric": "MKQARetrieval"
+        },
+        {
+          "task": "MTOPDomainClassification",
+          "task_type": "Classification",
+          "score": 90.95,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPDomainClassification"
+        },
+        {
+          "task": "MTOPIntentClassification",
+          "task_type": "Classification",
+          "score": 74.09,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPIntentClassification"
+        },
+        {
+          "task": "MassiveIntentClassification",
+          "task_type": "Classification",
+          "score": 65.92,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveIntentClassification"
+        },
+        {
+          "task": "MassiveScenarioClassification",
+          "task_type": "Classification",
+          "score": 73.38,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveScenarioClassification"
+        },
+        {
+          "task": "MultilingualSentimentClassification",
+          "task_type": "Classification",
+          "score": 69.7,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultilingualSentimentClassification"
+        },
+        {
+          "task": "NTREXBitextMining",
+          "task_type": "BitextMining",
+          "score": 78.45,
+          "split": "test",
+          "n_subsets": 14,
+          "main_metric": "NTREXBitextMining"
+        },
+        {
+          "task": "SIB200Classification",
+          "task_type": "Classification",
+          "score": 79.71,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200Classification"
+        },
+        {
+          "task": "SIB200ClusteringS2S",
+          "task_type": "Clustering",
+          "score": 44.31,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200ClusteringS2S"
+        },
+        {
+          "task": "Tatoeba",
+          "task_type": "BitextMining",
+          "score": 96.14,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "Tatoeba"
+        },
+        {
+          "task": "WebFAQBitextMiningQAs",
+          "task_type": "BitextMining",
+          "score": 98.8,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQAs"
+        },
+        {
+          "task": "WebFAQBitextMiningQuestions",
+          "task_type": "BitextMining",
+          "score": 97.88,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQuestions"
+        },
+        {
+          "task": "WisesightSentimentClassification.v2",
+          "task_type": "Classification",
+          "score": 33.55,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WisesightSentimentClassification.v2"
+        },
+        {
+          "task": "XNLI",
+          "task_type": "PairClassification",
+          "score": 69.58,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "XNLI"
+        },
+        {
+          "task": "XQuADRetrieval",
+          "task_type": "Retrieval",
+          "score": 94.12,
+          "split": "validation",
+          "n_subsets": 1,
+          "main_metric": "XQuADRetrieval"
+        }
+      ],
+      "meta": {
+        "revision": "98c19ba34197906fbc93f6f1ef79402ca3a33956",
+        "release_date": null,
+        "n_parameters": null,
+        "max_tokens": 131072,
+        "embed_dim": 3840,
+        "license": null,
+        "framework": [
+          "Sentence Transformers",
+          "PyTorch"
+        ],
+        "open_weights": null,
+        "similarity_fn_name": "cosine"
+      }
+    },
+    {
+      "name": "jinaai/jina-embeddings-v5-text-small",
+      "name_safe": "jinaai__jina-embeddings-v5-text-small",
+      "tasks_completed": 21,
+      "tasks_total": 28,
+      "avg_score": 75.13,
+      "type_averages": {
+        "Classification": 72.94,
+        "Retrieval": 68.47,
+        "BitextMining": 86.83,
+        "Reranking": 65.52,
+        "Clustering": 54.99,
+        "PairClassification": 78.78
+      },
+      "task_results": [
+        {
+          "task": "BelebeleRetrieval",
+          "task_type": "Retrieval",
+          "score": 92.87,
+          "split": "test",
+          "n_subsets": 3,
+          "main_metric": "BelebeleRetrieval"
+        },
+        {
+          "task": "BibleNLPBitextMining",
+          "task_type": "BitextMining",
+          "score": 96.61,
+          "split": "train",
+          "n_subsets": 2,
+          "main_metric": "BibleNLPBitextMining"
+        },
+        {
+          "task": "FloresBitextMining",
+          "task_type": "BitextMining",
+          "score": 73.33,
+          "split": "devtest",
+          "n_subsets": 406,
+          "main_metric": "FloresBitextMining"
+        },
+        {
+          "task": "LanguageClassification",
+          "task_type": "Classification",
+          "score": 67.33,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "LanguageClassification"
+        },
+        {
+          "task": "MIRACLReranking",
+          "task_type": "Reranking",
+          "score": 65.52,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLReranking"
+        },
+        {
+          "task": "MKQARetrieval",
+          "task_type": "Retrieval",
+          "score": 10.14,
+          "split": "train",
+          "n_subsets": 1,
+          "main_metric": "MKQARetrieval"
+        },
+        {
+          "task": "MTOPDomainClassification",
+          "task_type": "Classification",
+          "score": 96.94,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPDomainClassification"
+        },
+        {
+          "task": "MTOPIntentClassification",
+          "task_type": "Classification",
+          "score": 92.64,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPIntentClassification"
+        },
+        {
+          "task": "MassiveIntentClassification",
+          "task_type": "Classification",
+          "score": 84.56,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveIntentClassification"
+        },
+        {
+          "task": "MassiveScenarioClassification",
+          "task_type": "Classification",
+          "score": 90.41,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveScenarioClassification"
+        },
+        {
+          "task": "MultilingualSentimentClassification",
+          "task_type": "Classification",
+          "score": 67.44,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultilingualSentimentClassification"
+        },
+        {
+          "task": "NTREXBitextMining",
+          "task_type": "BitextMining",
+          "score": 59.11,
+          "split": "test",
+          "n_subsets": 14,
+          "main_metric": "NTREXBitextMining"
+        },
+        {
+          "task": "SIB200Classification",
+          "task_type": "Classification",
+          "score": 51.52,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200Classification"
+        },
+        {
+          "task": "SIB200ClusteringS2S",
+          "task_type": "Clustering",
+          "score": 54.99,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200ClusteringS2S"
+        },
+        {
+          "task": "Tatoeba",
+          "task_type": "BitextMining",
+          "score": 95.01,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "Tatoeba"
+        },
+        {
+          "task": "WebFAQBitextMiningQAs",
+          "task_type": "BitextMining",
+          "score": 98.72,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQAs"
+        },
+        {
+          "task": "WebFAQBitextMiningQuestions",
+          "task_type": "BitextMining",
+          "score": 98.2,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQuestions"
+        },
+        {
+          "task": "WebFAQRetrieval",
+          "task_type": "Retrieval",
+          "score": 76.29,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WebFAQRetrieval"
+        },
+        {
+          "task": "WisesightSentimentClassification.v2",
+          "task_type": "Classification",
+          "score": 32.64,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WisesightSentimentClassification.v2"
+        },
+        {
+          "task": "XNLI",
+          "task_type": "PairClassification",
+          "score": 78.78,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "XNLI"
+        },
+        {
+          "task": "XQuADRetrieval",
+          "task_type": "Retrieval",
+          "score": 94.59,
+          "split": "validation",
+          "n_subsets": 1,
+          "main_metric": "XQuADRetrieval"
+        }
+      ],
+      "meta": {
+        "revision": "d153fb80cb0b1410831a12f4d4795d39d348245c",
+        "release_date": null,
+        "n_parameters": null,
+        "max_tokens": 32768,
+        "embed_dim": null,
+        "license": null,
+        "framework": [
+          "Sentence Transformers",
+          "PyTorch"
+        ],
+        "open_weights": null,
+        "similarity_fn_name": "cosine"
+      }
+    },
+    {
+      "name": "Linq-AI-Research/Linq-Embed-Mistral",
+      "name_safe": "Linq-AI-Research__Linq-Embed-Mistral",
+      "tasks_completed": 19,
+      "tasks_total": 28,
+      "avg_score": 74.31,
+      "type_averages": {
+        "Classification": 75.35,
+        "Retrieval": 60.76,
+        "BitextMining": 84.15,
+        "Clustering": 51.64,
+        "PairClassification": 70.39
+      },
+      "task_results": [
+        {
+          "task": "BelebeleRetrieval",
+          "task_type": "Retrieval",
+          "score": 83.88,
+          "split": "test",
+          "n_subsets": 3,
+          "main_metric": "BelebeleRetrieval"
+        },
+        {
+          "task": "BibleNLPBitextMining",
+          "task_type": "BitextMining",
+          "score": 96.16,
+          "split": "train",
+          "n_subsets": 2,
+          "main_metric": "BibleNLPBitextMining"
+        },
+        {
+          "task": "FloresBitextMining",
+          "task_type": "BitextMining",
+          "score": 73.1,
+          "split": "devtest",
+          "n_subsets": 406,
+          "main_metric": "FloresBitextMining"
+        },
+        {
+          "task": "LanguageClassification",
+          "task_type": "Classification",
+          "score": 99.53,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "LanguageClassification"
+        },
+        {
+          "task": "MKQARetrieval",
+          "task_type": "Retrieval",
+          "score": 6.65,
+          "split": "train",
+          "n_subsets": 1,
+          "main_metric": "MKQARetrieval"
+        },
+        {
+          "task": "MTOPDomainClassification",
+          "task_type": "Classification",
+          "score": 88.11,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPDomainClassification"
+        },
+        {
+          "task": "MTOPIntentClassification",
+          "task_type": "Classification",
+          "score": 80.14,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPIntentClassification"
+        },
+        {
+          "task": "MassiveIntentClassification",
+          "task_type": "Classification",
+          "score": 68.56,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveIntentClassification"
+        },
+        {
+          "task": "MassiveScenarioClassification",
+          "task_type": "Classification",
+          "score": 74.46,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveScenarioClassification"
+        },
+        {
+          "task": "MultilingualSentimentClassification",
+          "task_type": "Classification",
+          "score": 74.04,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultilingualSentimentClassification"
+        },
+        {
+          "task": "NTREXBitextMining",
+          "task_type": "BitextMining",
+          "score": 49.63,
+          "split": "test",
+          "n_subsets": 14,
+          "main_metric": "NTREXBitextMining"
+        },
+        {
+          "task": "SIB200Classification",
+          "task_type": "Classification",
+          "score": 78.48,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200Classification"
+        },
+        {
+          "task": "SIB200ClusteringS2S",
+          "task_type": "Clustering",
+          "score": 51.64,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200ClusteringS2S"
+        },
+        {
+          "task": "Tatoeba",
+          "task_type": "BitextMining",
+          "score": 94.19,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "Tatoeba"
+        },
+        {
+          "task": "WebFAQBitextMiningQAs",
+          "task_type": "BitextMining",
+          "score": 97.24,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQAs"
+        },
+        {
+          "task": "WebFAQBitextMiningQuestions",
+          "task_type": "BitextMining",
+          "score": 94.58,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQuestions"
+        },
+        {
+          "task": "WisesightSentimentClassification.v2",
+          "task_type": "Classification",
+          "score": 39.45,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WisesightSentimentClassification.v2"
+        },
+        {
+          "task": "XNLI",
+          "task_type": "PairClassification",
+          "score": 70.39,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "XNLI"
+        },
+        {
+          "task": "XQuADRetrieval",
+          "task_type": "Retrieval",
+          "score": 91.75,
+          "split": "validation",
+          "n_subsets": 1,
+          "main_metric": "XQuADRetrieval"
+        }
+      ],
+      "meta": {
+        "revision": "0c1a0b0589177079acc552433cad51d7c9132379",
+        "release_date": "2024-05-29",
+        "n_parameters": 7110660096,
+        "max_tokens": 32768.0,
+        "embed_dim": 4096,
+        "license": "cc-by-nc-4.0",
+        "framework": [
+          "Sentence Transformers",
+          "PyTorch",
+          "safetensors",
+          "Transformers"
+        ],
+        "open_weights": true,
+        "similarity_fn_name": "cosine"
+      }
+    },
+    {
+      "name": "Qwen/Qwen3-Embedding-0.6B",
+      "name_safe": "Qwen__Qwen3-Embedding-0.6B",
+      "tasks_completed": 21,
+      "tasks_total": 28,
+      "avg_score": 73.87,
+      "type_averages": {
+        "Classification": 72.89,
+        "Retrieval": 64.41,
+        "BitextMining": 85.91,
+        "Reranking": 63.08,
+        "Clustering": 53.27,
+        "PairClassification": 78.67
+      },
+      "task_results": [
+        {
+          "task": "BelebeleRetrieval",
+          "task_type": "Retrieval",
+          "score": 87.58,
+          "split": "test",
+          "n_subsets": 3,
+          "main_metric": "BelebeleRetrieval"
+        },
+        {
+          "task": "BibleNLPBitextMining",
+          "task_type": "BitextMining",
+          "score": 96.88,
+          "split": "train",
+          "n_subsets": 2,
+          "main_metric": "BibleNLPBitextMining"
+        },
+        {
+          "task": "FloresBitextMining",
+          "task_type": "BitextMining",
+          "score": 75.55,
+          "split": "devtest",
+          "n_subsets": 406,
+          "main_metric": "FloresBitextMining"
+        },
+        {
+          "task": "LanguageClassification",
+          "task_type": "Classification",
+          "score": 96.47,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "LanguageClassification"
+        },
+        {
+          "task": "MIRACLReranking",
+          "task_type": "Reranking",
+          "score": 63.08,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLReranking"
+        },
+        {
+          "task": "MKQARetrieval",
+          "task_type": "Retrieval",
+          "score": 5.34,
+          "split": "train",
+          "n_subsets": 1,
+          "main_metric": "MKQARetrieval"
+        },
+        {
+          "task": "MTOPDomainClassification",
+          "task_type": "Classification",
+          "score": 85.84,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPDomainClassification"
+        },
+        {
+          "task": "MTOPIntentClassification",
+          "task_type": "Classification",
+          "score": 75.52,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPIntentClassification"
+        },
+        {
+          "task": "MassiveIntentClassification",
+          "task_type": "Classification",
+          "score": 67.67,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveIntentClassification"
+        },
+        {
+          "task": "MassiveScenarioClassification",
+          "task_type": "Classification",
+          "score": 74.51,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveScenarioClassification"
+        },
+        {
+          "task": "MultilingualSentimentClassification",
+          "task_type": "Classification",
+          "score": 69.4,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultilingualSentimentClassification"
+        },
+        {
+          "task": "NTREXBitextMining",
+          "task_type": "BitextMining",
+          "score": 62.7,
+          "split": "test",
+          "n_subsets": 14,
+          "main_metric": "NTREXBitextMining"
+        },
+        {
+          "task": "SIB200Classification",
+          "task_type": "Classification",
+          "score": 82.25,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200Classification"
+        },
+        {
+          "task": "SIB200ClusteringS2S",
+          "task_type": "Clustering",
+          "score": 53.27,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200ClusteringS2S"
+        },
+        {
+          "task": "Tatoeba",
+          "task_type": "BitextMining",
+          "score": 89.85,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "Tatoeba"
+        },
+        {
+          "task": "WebFAQBitextMiningQAs",
+          "task_type": "BitextMining",
+          "score": 97.78,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQAs"
+        },
+        {
+          "task": "WebFAQBitextMiningQuestions",
+          "task_type": "BitextMining",
+          "score": 92.68,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQuestions"
+        },
+        {
+          "task": "WebFAQRetrieval",
+          "task_type": "Retrieval",
+          "score": 73.8,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WebFAQRetrieval"
+        },
+        {
+          "task": "WisesightSentimentClassification.v2",
+          "task_type": "Classification",
+          "score": 31.45,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WisesightSentimentClassification.v2"
+        },
+        {
+          "task": "XNLI",
+          "task_type": "PairClassification",
+          "score": 78.67,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "XNLI"
+        },
+        {
+          "task": "XQuADRetrieval",
+          "task_type": "Retrieval",
+          "score": 90.9,
+          "split": "validation",
+          "n_subsets": 1,
+          "main_metric": "XQuADRetrieval"
+        }
+      ],
+      "meta": {
+        "revision": "b22da495047858cce924d27d76261e96be6febc0",
+        "release_date": "2025-06-05",
+        "n_parameters": 595776512,
+        "max_tokens": 32768.0,
+        "embed_dim": 1024,
+        "license": "apache-2.0",
+        "framework": [
+          "Sentence Transformers",
+          "PyTorch",
+          "safetensors",
+          "Transformers"
+        ],
+        "open_weights": true,
+        "similarity_fn_name": "cosine"
+      }
+    },
+    {
+      "name": "Octen/Octen-Embedding-8B",
+      "name_safe": "Octen__Octen-Embedding-8B",
+      "tasks_completed": 19,
+      "tasks_total": 28,
+      "avg_score": 73.11,
+      "type_averages": {
+        "Classification": 65.17,
+        "Retrieval": 71.38,
+        "BitextMining": 90.01,
+        "Clustering": 43.37,
+        "PairClassification": 70.11
+      },
+      "task_results": [
+        {
+          "task": "BelebeleRetrieval",
+          "task_type": "Retrieval",
+          "score": 98.0,
+          "split": "test",
+          "n_subsets": 3,
+          "main_metric": "BelebeleRetrieval"
+        },
+        {
+          "task": "BibleNLPBitextMining",
+          "task_type": "BitextMining",
+          "score": 95.12,
+          "split": "train",
+          "n_subsets": 2,
+          "main_metric": "BibleNLPBitextMining"
+        },
+        {
+          "task": "FloresBitextMining",
+          "task_type": "BitextMining",
+          "score": 78.91,
+          "split": "devtest",
+          "n_subsets": 406,
+          "main_metric": "FloresBitextMining"
+        },
+        {
+          "task": "LanguageClassification",
+          "task_type": "Classification",
+          "score": 42.16,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "LanguageClassification"
+        },
+        {
+          "task": "MKQARetrieval",
+          "task_type": "Retrieval",
+          "score": 20.58,
+          "split": "train",
+          "n_subsets": 1,
+          "main_metric": "MKQARetrieval"
+        },
+        {
+          "task": "MTOPDomainClassification",
+          "task_type": "Classification",
+          "score": 89.25,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPDomainClassification"
+        },
+        {
+          "task": "MTOPIntentClassification",
+          "task_type": "Classification",
+          "score": 71.29,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPIntentClassification"
+        },
+        {
+          "task": "MassiveIntentClassification",
+          "task_type": "Classification",
+          "score": 66.99,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveIntentClassification"
+        },
+        {
+          "task": "MassiveScenarioClassification",
+          "task_type": "Classification",
+          "score": 73.37,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveScenarioClassification"
+        },
+        {
+          "task": "MultilingualSentimentClassification",
+          "task_type": "Classification",
+          "score": 69.26,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultilingualSentimentClassification"
+        },
+        {
+          "task": "NTREXBitextMining",
+          "task_type": "BitextMining",
+          "score": 73.46,
+          "split": "test",
+          "n_subsets": 14,
+          "main_metric": "NTREXBitextMining"
+        },
+        {
+          "task": "SIB200Classification",
+          "task_type": "Classification",
+          "score": 76.86,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200Classification"
+        },
+        {
+          "task": "SIB200ClusteringS2S",
+          "task_type": "Clustering",
+          "score": 43.37,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200ClusteringS2S"
+        },
+        {
+          "task": "Tatoeba",
+          "task_type": "BitextMining",
+          "score": 96.5,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "Tatoeba"
+        },
+        {
+          "task": "WebFAQBitextMiningQAs",
+          "task_type": "BitextMining",
+          "score": 98.6,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQAs"
+        },
+        {
+          "task": "WebFAQBitextMiningQuestions",
+          "task_type": "BitextMining",
+          "score": 97.47,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQuestions"
+        },
+        {
+          "task": "WisesightSentimentClassification.v2",
+          "task_type": "Classification",
+          "score": 32.2,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WisesightSentimentClassification.v2"
+        },
+        {
+          "task": "XNLI",
+          "task_type": "PairClassification",
+          "score": 70.11,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "XNLI"
+        },
+        {
+          "task": "XQuADRetrieval",
+          "task_type": "Retrieval",
+          "score": 95.56,
+          "split": "validation",
+          "n_subsets": 1,
+          "main_metric": "XQuADRetrieval"
+        }
+      ],
+      "meta": {
+        "revision": "5adcfa292e712091dfc30f0e97f0b2282e6cc66c",
+        "release_date": null,
+        "n_parameters": null,
+        "max_tokens": null,
+        "embed_dim": null,
+        "license": null,
+        "framework": [],
+        "open_weights": null,
+        "similarity_fn_name": null
+      }
+    },
+    {
+      "name": "ICT-TIME-and-Querit/BOOM_4B_v1",
+      "name_safe": "ICT-TIME-and-Querit__BOOM_4B_v1",
+      "tasks_completed": 19,
+      "tasks_total": 28,
+      "avg_score": 72.08,
+      "type_averages": {
+        "Classification": 69.92,
+        "Retrieval": 66.54,
+        "BitextMining": 82.09,
+        "Clustering": 46.54,
+        "PairClassification": 71.49
+      },
+      "task_results": [
+        {
+          "task": "BelebeleRetrieval",
+          "task_type": "Retrieval",
+          "score": 92.28,
+          "split": "test",
+          "n_subsets": 3,
+          "main_metric": "BelebeleRetrieval"
+        },
+        {
+          "task": "BibleNLPBitextMining",
+          "task_type": "BitextMining",
+          "score": 82.13,
+          "split": "train",
+          "n_subsets": 2,
+          "main_metric": "BibleNLPBitextMining"
+        },
+        {
+          "task": "FloresBitextMining",
+          "task_type": "BitextMining",
+          "score": 68.36,
+          "split": "devtest",
+          "n_subsets": 406,
+          "main_metric": "FloresBitextMining"
+        },
+        {
+          "task": "LanguageClassification",
+          "task_type": "Classification",
+          "score": 81.2,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "LanguageClassification"
+        },
+        {
+          "task": "MKQARetrieval",
+          "task_type": "Retrieval",
+          "score": 10.8,
+          "split": "train",
+          "n_subsets": 1,
+          "main_metric": "MKQARetrieval"
+        },
+        {
+          "task": "MTOPDomainClassification",
+          "task_type": "Classification",
+          "score": 88.28,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPDomainClassification"
+        },
+        {
+          "task": "MTOPIntentClassification",
+          "task_type": "Classification",
+          "score": 71.63,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPIntentClassification"
+        },
+        {
+          "task": "MassiveIntentClassification",
+          "task_type": "Classification",
+          "score": 64.11,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveIntentClassification"
+        },
+        {
+          "task": "MassiveScenarioClassification",
+          "task_type": "Classification",
+          "score": 70.54,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveScenarioClassification"
+        },
+        {
+          "task": "MultilingualSentimentClassification",
+          "task_type": "Classification",
+          "score": 69.41,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultilingualSentimentClassification"
+        },
+        {
+          "task": "NTREXBitextMining",
+          "task_type": "BitextMining",
+          "score": 56.17,
+          "split": "test",
+          "n_subsets": 14,
+          "main_metric": "NTREXBitextMining"
+        },
+        {
+          "task": "SIB200Classification",
+          "task_type": "Classification",
+          "score": 81.13,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200Classification"
+        },
+        {
+          "task": "SIB200ClusteringS2S",
+          "task_type": "Clustering",
+          "score": 46.54,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200ClusteringS2S"
+        },
+        {
+          "task": "Tatoeba",
+          "task_type": "BitextMining",
+          "score": 91.24,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "Tatoeba"
+        },
+        {
+          "task": "WebFAQBitextMiningQAs",
+          "task_type": "BitextMining",
+          "score": 98.47,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQAs"
+        },
+        {
+          "task": "WebFAQBitextMiningQuestions",
+          "task_type": "BitextMining",
+          "score": 96.18,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQuestions"
+        },
+        {
+          "task": "WisesightSentimentClassification.v2",
+          "task_type": "Classification",
+          "score": 33.06,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WisesightSentimentClassification.v2"
+        },
+        {
+          "task": "XNLI",
+          "task_type": "PairClassification",
+          "score": 71.49,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "XNLI"
+        },
+        {
+          "task": "XQuADRetrieval",
+          "task_type": "Retrieval",
+          "score": 96.54,
+          "split": "validation",
+          "n_subsets": 1,
+          "main_metric": "XQuADRetrieval"
+        }
+      ],
+      "meta": {
+        "revision": "bfd7165fadc3bf49faa466a3dc3920af2d5a3166",
+        "release_date": null,
+        "n_parameters": null,
+        "max_tokens": 40960,
+        "embed_dim": 2560,
+        "license": null,
+        "framework": [
+          "Sentence Transformers",
+          "PyTorch"
+        ],
+        "open_weights": null,
+        "similarity_fn_name": "cosine"
+      }
+    },
+    {
+      "name": "intfloat/multilingual-e5-large-instruct",
+      "name_safe": "intfloat__multilingual-e5-large-instruct",
+      "tasks_completed": 28,
+      "tasks_total": 28,
+      "avg_score": 70.79,
+      "type_averages": {
+        "Retrieval": 65.36,
+        "Classification": 67.85,
+        "BitextMining": 92.69,
+        "Reranking": 46.38,
+        "Clustering": 58.52,
+        "PairClassification": 75.95
+      },
+      "task_results": [
+        {
+          "task": "BelebeleRetrieval",
+          "task_type": "Retrieval",
+          "score": 85.45,
+          "split": "test",
+          "n_subsets": 3,
+          "main_metric": "BelebeleRetrieval"
+        },
+        {
+          "task": "BibleNLPBitextMining",
+          "task_type": "BitextMining",
+          "score": 97.95,
+          "split": "train",
+          "n_subsets": 2,
+          "main_metric": "BibleNLPBitextMining"
+        },
+        {
+          "task": "FloresBitextMining",
+          "task_type": "BitextMining",
+          "score": 92.12,
+          "split": "devtest",
+          "n_subsets": 406,
+          "main_metric": "FloresBitextMining"
+        },
+        {
+          "task": "LanguageClassification",
+          "task_type": "Classification",
+          "score": 99.78,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "LanguageClassification"
+        },
+        {
+          "task": "MIRACLReranking",
+          "task_type": "Reranking",
+          "score": 65.51,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLReranking"
+        },
+        {
+          "task": "MIRACLRetrieval",
+          "task_type": "Retrieval",
+          "score": 77.94,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrieval"
+        },
+        {
+          "task": "MIRACLRetrievalHardNegatives",
+          "task_type": "Retrieval",
+          "score": 76.58,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrievalHardNegatives"
+        },
+        {
+          "task": "MIRACLRetrievalHardNegatives.v2",
+          "task_type": "Retrieval",
+          "score": 77.96,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrievalHardNegatives.v2"
+        },
+        {
+          "task": "MKQARetrieval",
+          "task_type": "Retrieval",
+          "score": 7.24,
+          "split": "train",
+          "n_subsets": 1,
+          "main_metric": "MKQARetrieval"
+        },
+        {
+          "task": "MTOPDomainClassification",
+          "task_type": "Classification",
+          "score": 82.05,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPDomainClassification"
+        },
+        {
+          "task": "MTOPIntentClassification",
+          "task_type": "Classification",
+          "score": 65.45,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPIntentClassification"
+        },
+        {
+          "task": "MassiveIntentClassification",
+          "task_type": "Classification",
+          "score": 62.05,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveIntentClassification"
+        },
+        {
+          "task": "MassiveScenarioClassification",
+          "task_type": "Classification",
+          "score": 69.9,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveScenarioClassification"
+        },
+        {
+          "task": "MrTidyRetrieval",
+          "task_type": "Retrieval",
+          "score": 77.37,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MrTidyRetrieval"
+        },
+        {
+          "task": "MultiLongDocReranking",
+          "task_type": "Reranking",
+          "score": 27.25,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultiLongDocReranking"
+        },
+        {
+          "task": "MultiLongDocRetrieval",
+          "task_type": "Retrieval",
+          "score": 16.12,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultiLongDocRetrieval"
+        },
+        {
+          "task": "MultilingualSentimentClassification",
+          "task_type": "Classification",
+          "score": 77.47,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultilingualSentimentClassification"
+        },
+        {
+          "task": "NTREXBitextMining",
+          "task_type": "BitextMining",
+          "score": 72.94,
+          "split": "test",
+          "n_subsets": 14,
+          "main_metric": "NTREXBitextMining"
+        },
+        {
+          "task": "SIB200Classification",
+          "task_type": "Classification",
+          "score": 82.4,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200Classification"
+        },
+        {
+          "task": "SIB200ClusteringS2S",
+          "task_type": "Clustering",
+          "score": 58.52,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200ClusteringS2S"
+        },
+        {
+          "task": "Tatoeba",
+          "task_type": "BitextMining",
+          "score": 96.84,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "Tatoeba"
+        },
+        {
+          "task": "WebFAQBitextMiningQAs",
+          "task_type": "BitextMining",
+          "score": 98.79,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQAs"
+        },
+        {
+          "task": "WebFAQBitextMiningQuestions",
+          "task_type": "BitextMining",
+          "score": 97.49,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQuestions"
+        },
+        {
+          "task": "WebFAQRetrieval",
+          "task_type": "Retrieval",
+          "score": 74.41,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WebFAQRetrieval"
+        },
+        {
+          "task": "WisesightSentimentClassification.v2",
+          "task_type": "Classification",
+          "score": 35.39,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WisesightSentimentClassification.v2"
+        },
+        {
+          "task": "WongnaiReviewsClassification",
+          "task_type": "Classification",
+          "score": 36.12,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WongnaiReviewsClassification"
+        },
+        {
+          "task": "XNLI",
+          "task_type": "PairClassification",
+          "score": 75.95,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "XNLI"
+        },
+        {
+          "task": "XQuADRetrieval",
+          "task_type": "Retrieval",
+          "score": 95.2,
+          "split": "validation",
+          "n_subsets": 1,
+          "main_metric": "XQuADRetrieval"
+        }
+      ],
+      "meta": {
+        "revision": "baa7be480a7de1539afce709c8f13f833a510e0a",
+        "release_date": "2024-02-08",
+        "n_parameters": 560000000,
+        "max_tokens": 514.0,
+        "embed_dim": 1024,
+        "license": "mit",
+        "framework": [
+          "GritLM",
+          "PyTorch",
+          "Sentence Transformers",
+          "ONNX",
+          "safetensors",
+          "Transformers"
+        ],
+        "open_weights": true,
+        "similarity_fn_name": "cosine"
+      }
+    },
+    {
+      "name": "google/embeddinggemma-300m",
+      "name_safe": "google__embeddinggemma-300m",
+      "tasks_completed": 28,
+      "tasks_total": 28,
+      "avg_score": 70.17,
+      "type_averages": {
+        "Retrieval": 65.35,
+        "Classification": 71.82,
+        "BitextMining": 84.7,
+        "Reranking": 48.02,
+        "Clustering": 45.3,
+        "PairClassification": 80.56
+      },
+      "task_results": [
+        {
+          "task": "BelebeleRetrieval",
+          "task_type": "Retrieval",
+          "score": 92.36,
+          "split": "test",
+          "n_subsets": 3,
+          "main_metric": "BelebeleRetrieval"
+        },
+        {
+          "task": "BibleNLPBitextMining",
+          "task_type": "BitextMining",
+          "score": 95.25,
+          "split": "train",
+          "n_subsets": 2,
+          "main_metric": "BibleNLPBitextMining"
+        },
+        {
+          "task": "FloresBitextMining",
+          "task_type": "BitextMining",
+          "score": 70.0,
+          "split": "devtest",
+          "n_subsets": 406,
+          "main_metric": "FloresBitextMining"
+        },
+        {
+          "task": "LanguageClassification",
+          "task_type": "Classification",
+          "score": 89.21,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "LanguageClassification"
+        },
+        {
+          "task": "MIRACLReranking",
+          "task_type": "Reranking",
+          "score": 58.99,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLReranking"
+        },
+        {
+          "task": "MIRACLRetrieval",
+          "task_type": "Retrieval",
+          "score": 74.53,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrieval"
+        },
+        {
+          "task": "MIRACLRetrievalHardNegatives",
+          "task_type": "Retrieval",
+          "score": 74.8,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrievalHardNegatives"
+        },
+        {
+          "task": "MIRACLRetrievalHardNegatives.v2",
+          "task_type": "Retrieval",
+          "score": 74.8,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrievalHardNegatives.v2"
+        },
+        {
+          "task": "MKQARetrieval",
+          "task_type": "Retrieval",
+          "score": 7.65,
+          "split": "train",
+          "n_subsets": 1,
+          "main_metric": "MKQARetrieval"
+        },
+        {
+          "task": "MTOPDomainClassification",
+          "task_type": "Classification",
+          "score": 91.85,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPDomainClassification"
+        },
+        {
+          "task": "MTOPIntentClassification",
+          "task_type": "Classification",
+          "score": 84.06,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPIntentClassification"
+        },
+        {
+          "task": "MassiveIntentClassification",
+          "task_type": "Classification",
+          "score": 70.1,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveIntentClassification"
+        },
+        {
+          "task": "MassiveScenarioClassification",
+          "task_type": "Classification",
+          "score": 80.75,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveScenarioClassification"
+        },
+        {
+          "task": "MrTidyRetrieval",
+          "task_type": "Retrieval",
+          "score": 66.09,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MrTidyRetrieval"
+        },
+        {
+          "task": "MultiLongDocReranking",
+          "task_type": "Reranking",
+          "score": 37.04,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultiLongDocReranking"
+        },
+        {
+          "task": "MultiLongDocRetrieval",
+          "task_type": "Retrieval",
+          "score": 26.23,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultiLongDocRetrieval"
+        },
+        {
+          "task": "MultilingualSentimentClassification",
+          "task_type": "Classification",
+          "score": 75.83,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultilingualSentimentClassification"
+        },
+        {
+          "task": "NTREXBitextMining",
+          "task_type": "BitextMining",
+          "score": 53.11,
+          "split": "test",
+          "n_subsets": 14,
+          "main_metric": "NTREXBitextMining"
+        },
+        {
+          "task": "SIB200Classification",
+          "task_type": "Classification",
+          "score": 77.55,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200Classification"
+        },
+        {
+          "task": "SIB200ClusteringS2S",
+          "task_type": "Clustering",
+          "score": 45.3,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200ClusteringS2S"
+        },
+        {
+          "task": "Tatoeba",
+          "task_type": "BitextMining",
+          "score": 94.56,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "Tatoeba"
+        },
+        {
+          "task": "WebFAQBitextMiningQAs",
+          "task_type": "BitextMining",
+          "score": 98.45,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQAs"
+        },
+        {
+          "task": "WebFAQBitextMiningQuestions",
+          "task_type": "BitextMining",
+          "score": 96.8,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQuestions"
+        },
+        {
+          "task": "WebFAQRetrieval",
+          "task_type": "Retrieval",
+          "score": 76.48,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WebFAQRetrieval"
+        },
+        {
+          "task": "WisesightSentimentClassification.v2",
+          "task_type": "Classification",
+          "score": 40.1,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WisesightSentimentClassification.v2"
+        },
+        {
+          "task": "WongnaiReviewsClassification",
+          "task_type": "Classification",
+          "score": 36.95,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WongnaiReviewsClassification"
+        },
+        {
+          "task": "XNLI",
+          "task_type": "PairClassification",
+          "score": 80.56,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "XNLI"
+        },
+        {
+          "task": "XQuADRetrieval",
+          "task_type": "Retrieval",
+          "score": 95.24,
+          "split": "validation",
+          "n_subsets": 1,
+          "main_metric": "XQuADRetrieval"
+        }
+      ],
+      "meta": {
+        "revision": "57c266a740f537b4dc058e1b0cda161fd15afa75",
+        "release_date": null,
+        "n_parameters": null,
+        "max_tokens": 2048,
+        "embed_dim": 768,
+        "license": null,
+        "framework": [
+          "Sentence Transformers",
+          "PyTorch"
+        ],
+        "open_weights": null,
+        "similarity_fn_name": "cosine"
+      }
+    },
+    {
+      "name": "BAAI/bge-m3",
+      "name_safe": "BAAI__bge-m3",
+      "tasks_completed": 28,
+      "tasks_total": 28,
+      "avg_score": 69.3,
+      "type_averages": {
+        "Retrieval": 69.76,
+        "Classification": 58.8,
+        "BitextMining": 90.72,
+        "Reranking": 63.24,
+        "Clustering": 35.02,
+        "PairClassification": 77.42
+      },
+      "task_results": [
+        {
+          "task": "BelebeleRetrieval",
+          "task_type": "Retrieval",
+          "score": 89.25,
+          "split": "test",
+          "n_subsets": 3,
+          "main_metric": "BelebeleRetrieval"
+        },
+        {
+          "task": "BibleNLPBitextMining",
+          "task_type": "BitextMining",
+          "score": 97.4,
+          "split": "train",
+          "n_subsets": 2,
+          "main_metric": "BibleNLPBitextMining"
+        },
+        {
+          "task": "FloresBitextMining",
+          "task_type": "BitextMining",
+          "score": 84.17,
+          "split": "devtest",
+          "n_subsets": 406,
+          "main_metric": "FloresBitextMining"
+        },
+        {
+          "task": "LanguageClassification",
+          "task_type": "Classification",
+          "score": 22.39,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "LanguageClassification"
+        },
+        {
+          "task": "MIRACLReranking",
+          "task_type": "Reranking",
+          "score": 68.47,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLReranking"
+        },
+        {
+          "task": "MIRACLRetrieval",
+          "task_type": "Retrieval",
+          "score": 82.14,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrieval"
+        },
+        {
+          "task": "MIRACLRetrievalHardNegatives",
+          "task_type": "Retrieval",
+          "score": 82.27,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrievalHardNegatives"
+        },
+        {
+          "task": "MIRACLRetrievalHardNegatives.v2",
+          "task_type": "Retrieval",
+          "score": 82.27,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrievalHardNegatives.v2"
+        },
+        {
+          "task": "MKQARetrieval",
+          "task_type": "Retrieval",
+          "score": 6.03,
+          "split": "train",
+          "n_subsets": 1,
+          "main_metric": "MKQARetrieval"
+        },
+        {
+          "task": "MTOPDomainClassification",
+          "task_type": "Classification",
+          "score": 86.28,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPDomainClassification"
+        },
+        {
+          "task": "MTOPIntentClassification",
+          "task_type": "Classification",
+          "score": 65.82,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPIntentClassification"
+        },
+        {
+          "task": "MassiveIntentClassification",
+          "task_type": "Classification",
+          "score": 64.05,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveIntentClassification"
+        },
+        {
+          "task": "MassiveScenarioClassification",
+          "task_type": "Classification",
+          "score": 70.8,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveScenarioClassification"
+        },
+        {
+          "task": "MrTidyRetrieval",
+          "task_type": "Retrieval",
+          "score": 79.77,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MrTidyRetrieval"
+        },
+        {
+          "task": "MultiLongDocReranking",
+          "task_type": "Reranking",
+          "score": 58.01,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultiLongDocReranking"
+        },
+        {
+          "task": "MultiLongDocRetrieval",
+          "task_type": "Retrieval",
+          "score": 35.2,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultiLongDocRetrieval"
+        },
+        {
+          "task": "MultilingualSentimentClassification",
+          "task_type": "Classification",
+          "score": 76.05,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultilingualSentimentClassification"
+        },
+        {
+          "task": "NTREXBitextMining",
+          "task_type": "BitextMining",
+          "score": 71.57,
+          "split": "test",
+          "n_subsets": 14,
+          "main_metric": "NTREXBitextMining"
+        },
+        {
+          "task": "SIB200Classification",
+          "task_type": "Classification",
+          "score": 74.85,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200Classification"
+        },
+        {
+          "task": "SIB200ClusteringS2S",
+          "task_type": "Clustering",
+          "score": 35.02,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200ClusteringS2S"
+        },
+        {
+          "task": "Tatoeba",
+          "task_type": "BitextMining",
+          "score": 95.89,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "Tatoeba"
+        },
+        {
+          "task": "WebFAQBitextMiningQAs",
+          "task_type": "BitextMining",
+          "score": 98.42,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQAs"
+        },
+        {
+          "task": "WebFAQBitextMiningQuestions",
+          "task_type": "BitextMining",
+          "score": 96.87,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQuestions"
+        },
+        {
+          "task": "WebFAQRetrieval",
+          "task_type": "Retrieval",
+          "score": 75.37,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WebFAQRetrieval"
+        },
+        {
+          "task": "WisesightSentimentClassification.v2",
+          "task_type": "Classification",
+          "score": 36.51,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WisesightSentimentClassification.v2"
+        },
+        {
+          "task": "WongnaiReviewsClassification",
+          "task_type": "Classification",
+          "score": 32.48,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WongnaiReviewsClassification"
+        },
+        {
+          "task": "XNLI",
+          "task_type": "PairClassification",
+          "score": 77.42,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "XNLI"
+        },
+        {
+          "task": "XQuADRetrieval",
+          "task_type": "Retrieval",
+          "score": 95.51,
+          "split": "validation",
+          "n_subsets": 1,
+          "main_metric": "XQuADRetrieval"
+        }
+      ],
+      "meta": {
+        "revision": "5617a9f61b028005a4858fdac845db406aefb181",
+        "release_date": "2024-06-28",
+        "n_parameters": 568000000,
+        "max_tokens": 8194.0,
+        "embed_dim": 1024,
+        "license": "mit",
+        "framework": [
+          "Sentence Transformers",
+          "PyTorch",
+          "ONNX"
+        ],
+        "open_weights": true,
+        "similarity_fn_name": "cosine"
+      }
+    },
+    {
+      "name": "jinaai/jina-embeddings-v5-text-nano",
+      "name_safe": "jinaai__jina-embeddings-v5-text-nano",
+      "tasks_completed": 28,
+      "tasks_total": 28,
+      "avg_score": 69.2,
+      "type_averages": {
+        "Retrieval": 67.21,
+        "Classification": 65.66,
+        "BitextMining": 82.93,
+        "Reranking": 54.36,
+        "Clustering": 56.64,
+        "PairClassification": 78.83
+      },
+      "task_results": [
+        {
+          "task": "BelebeleRetrieval",
+          "task_type": "Retrieval",
+          "score": 92.7,
+          "split": "test",
+          "n_subsets": 3,
+          "main_metric": "BelebeleRetrieval"
+        },
+        {
+          "task": "BibleNLPBitextMining",
+          "task_type": "BitextMining",
+          "score": 94.79,
+          "split": "train",
+          "n_subsets": 2,
+          "main_metric": "BibleNLPBitextMining"
+        },
+        {
+          "task": "FloresBitextMining",
+          "task_type": "BitextMining",
+          "score": 70.4,
+          "split": "devtest",
+          "n_subsets": 406,
+          "main_metric": "FloresBitextMining"
+        },
+        {
+          "task": "LanguageClassification",
+          "task_type": "Classification",
+          "score": 65.8,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "LanguageClassification"
+        },
+        {
+          "task": "MIRACLReranking",
+          "task_type": "Reranking",
+          "score": 65.19,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLReranking"
+        },
+        {
+          "task": "MIRACLRetrieval",
+          "task_type": "Retrieval",
+          "score": 77.07,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrieval"
+        },
+        {
+          "task": "MIRACLRetrievalHardNegatives",
+          "task_type": "Retrieval",
+          "score": 77.34,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrievalHardNegatives"
+        },
+        {
+          "task": "MIRACLRetrievalHardNegatives.v2",
+          "task_type": "Retrieval",
+          "score": 77.34,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrievalHardNegatives.v2"
+        },
+        {
+          "task": "MKQARetrieval",
+          "task_type": "Retrieval",
+          "score": 9.94,
+          "split": "train",
+          "n_subsets": 1,
+          "main_metric": "MKQARetrieval"
+        },
+        {
+          "task": "MTOPDomainClassification",
+          "task_type": "Classification",
+          "score": 96.32,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPDomainClassification"
+        },
+        {
+          "task": "MTOPIntentClassification",
+          "task_type": "Classification",
+          "score": 90.83,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPIntentClassification"
+        },
+        {
+          "task": "MassiveIntentClassification",
+          "task_type": "Classification",
+          "score": 82.86,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveIntentClassification"
+        },
+        {
+          "task": "MassiveScenarioClassification",
+          "task_type": "Classification",
+          "score": 89.18,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveScenarioClassification"
+        },
+        {
+          "task": "MrTidyRetrieval",
+          "task_type": "Retrieval",
+          "score": 71.83,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MrTidyRetrieval"
+        },
+        {
+          "task": "MultiLongDocReranking",
+          "task_type": "Reranking",
+          "score": 43.52,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultiLongDocReranking"
+        },
+        {
+          "task": "MultiLongDocRetrieval",
+          "task_type": "Retrieval",
+          "score": 28.28,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultiLongDocRetrieval"
+        },
+        {
+          "task": "MultilingualSentimentClassification",
+          "task_type": "Classification",
+          "score": 65.22,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultilingualSentimentClassification"
+        },
+        {
+          "task": "NTREXBitextMining",
+          "task_type": "BitextMining",
+          "score": 43.96,
+          "split": "test",
+          "n_subsets": 14,
+          "main_metric": "NTREXBitextMining"
+        },
+        {
+          "task": "SIB200Classification",
+          "task_type": "Classification",
+          "score": 43.82,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200Classification"
+        },
+        {
+          "task": "SIB200ClusteringS2S",
+          "task_type": "Clustering",
+          "score": 56.64,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200ClusteringS2S"
+        },
+        {
+          "task": "Tatoeba",
+          "task_type": "BitextMining",
+          "score": 93.37,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "Tatoeba"
+        },
+        {
+          "task": "WebFAQBitextMiningQAs",
+          "task_type": "BitextMining",
+          "score": 97.13,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQAs"
+        },
+        {
+          "task": "WebFAQBitextMiningQuestions",
+          "task_type": "BitextMining",
+          "score": 97.95,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQuestions"
+        },
+        {
+          "task": "WebFAQRetrieval",
+          "task_type": "Retrieval",
+          "score": 75.54,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WebFAQRetrieval"
+        },
+        {
+          "task": "WisesightSentimentClassification.v2",
+          "task_type": "Classification",
+          "score": 28.01,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WisesightSentimentClassification.v2"
+        },
+        {
+          "task": "WongnaiReviewsClassification",
+          "task_type": "Classification",
+          "score": 28.86,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WongnaiReviewsClassification"
+        },
+        {
+          "task": "XNLI",
+          "task_type": "PairClassification",
+          "score": 78.83,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "XNLI"
+        },
+        {
+          "task": "XQuADRetrieval",
+          "task_type": "Retrieval",
+          "score": 94.86,
+          "split": "validation",
+          "n_subsets": 1,
+          "main_metric": "XQuADRetrieval"
+        }
+      ],
+      "meta": {
+        "revision": "062e9a85a87b4dd57458a651a65c642a6809f80e",
+        "release_date": null,
+        "n_parameters": null,
+        "max_tokens": 8192,
+        "embed_dim": null,
+        "license": null,
+        "framework": [
+          "Sentence Transformers",
+          "PyTorch"
+        ],
+        "open_weights": null,
+        "similarity_fn_name": "cosine"
+      }
+    },
+    {
+      "name": "Salesforce/SFR-Embedding-Mistral",
+      "name_safe": "Salesforce__SFR-Embedding-Mistral",
+      "tasks_completed": 10,
+      "tasks_total": 28,
+      "avg_score": 66.63,
+      "type_averages": {
+        "Classification": 68.05,
+        "Clustering": 53.81
+      },
+      "task_results": [
+        {
+          "task": "LanguageClassification",
+          "task_type": "Classification",
+          "score": 99.45,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "LanguageClassification"
+        },
+        {
+          "task": "MTOPDomainClassification",
+          "task_type": "Classification",
+          "score": 85.84,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPDomainClassification"
+        },
+        {
+          "task": "MTOPIntentClassification",
+          "task_type": "Classification",
+          "score": 73.19,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPIntentClassification"
+        },
+        {
+          "task": "MassiveIntentClassification",
+          "task_type": "Classification",
+          "score": 66.45,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveIntentClassification"
+        },
+        {
+          "task": "MassiveScenarioClassification",
+          "task_type": "Classification",
+          "score": 72.06,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveScenarioClassification"
+        },
+        {
+          "task": "MultilingualSentimentClassification",
+          "task_type": "Classification",
+          "score": 67.54,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultilingualSentimentClassification"
+        },
+        {
+          "task": "SIB200Classification",
+          "task_type": "Classification",
+          "score": 80.15,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200Classification"
+        },
+        {
+          "task": "SIB200ClusteringS2S",
+          "task_type": "Clustering",
+          "score": 53.81,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200ClusteringS2S"
+        },
+        {
+          "task": "WisesightSentimentClassification.v2",
+          "task_type": "Classification",
+          "score": 35.46,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WisesightSentimentClassification.v2"
+        },
+        {
+          "task": "WongnaiReviewsClassification",
+          "task_type": "Classification",
+          "score": 32.35,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WongnaiReviewsClassification"
+        }
+      ],
+      "meta": {
+        "revision": "938c560d1c236aa563b2dbdf084f28ab28bccb11",
+        "release_date": "2024-01-24",
+        "n_parameters": 7110660096,
+        "max_tokens": 32768.0,
+        "embed_dim": 4096,
+        "license": "cc-by-nc-4.0",
+        "framework": [
+          "Sentence Transformers",
+          "PyTorch",
+          "safetensors",
+          "Transformers"
+        ],
+        "open_weights": true,
+        "similarity_fn_name": "cosine"
+      }
+    },
+    {
+      "name": "jinaai/jina-embeddings-v5-text-nano-retrieval",
+      "name_safe": "jinaai__jina-embeddings-v5-text-nano-retrieval",
+      "tasks_completed": 28,
+      "tasks_total": 28,
+      "avg_score": 57.96,
+      "type_averages": {
+        "Retrieval": 67.14,
+        "Classification": 49.21,
+        "BitextMining": 60.44,
+        "Reranking": 54.34,
+        "Clustering": 43.24,
+        "PairClassification": 61.11
+      },
+      "task_results": [
+        {
+          "task": "BelebeleRetrieval",
+          "task_type": "Retrieval",
+          "score": 92.66,
+          "split": "test",
+          "n_subsets": 3,
+          "main_metric": "BelebeleRetrieval"
+        },
+        {
+          "task": "BibleNLPBitextMining",
+          "task_type": "BitextMining",
+          "score": 50.83,
+          "split": "train",
+          "n_subsets": 2,
+          "main_metric": "BibleNLPBitextMining"
+        },
+        {
+          "task": "FloresBitextMining",
+          "task_type": "BitextMining",
+          "score": 57.29,
+          "split": "devtest",
+          "n_subsets": 406,
+          "main_metric": "FloresBitextMining"
+        },
+        {
+          "task": "LanguageClassification",
+          "task_type": "Classification",
+          "score": 43.35,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "LanguageClassification"
+        },
+        {
+          "task": "MIRACLReranking",
+          "task_type": "Reranking",
+          "score": 65.1,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLReranking"
+        },
+        {
+          "task": "MIRACLRetrieval",
+          "task_type": "Retrieval",
+          "score": 77.0,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrieval"
+        },
+        {
+          "task": "MIRACLRetrievalHardNegatives",
+          "task_type": "Retrieval",
+          "score": 77.2,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrievalHardNegatives"
+        },
+        {
+          "task": "MIRACLRetrievalHardNegatives.v2",
+          "task_type": "Retrieval",
+          "score": 77.2,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrievalHardNegatives.v2"
+        },
+        {
+          "task": "MKQARetrieval",
+          "task_type": "Retrieval",
+          "score": 9.92,
+          "split": "train",
+          "n_subsets": 1,
+          "main_metric": "MKQARetrieval"
+        },
+        {
+          "task": "MTOPDomainClassification",
+          "task_type": "Classification",
+          "score": 69.21,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPDomainClassification"
+        },
+        {
+          "task": "MTOPIntentClassification",
+          "task_type": "Classification",
+          "score": 42.39,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPIntentClassification"
+        },
+        {
+          "task": "MassiveIntentClassification",
+          "task_type": "Classification",
+          "score": 44.3,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveIntentClassification"
+        },
+        {
+          "task": "MassiveScenarioClassification",
+          "task_type": "Classification",
+          "score": 53.32,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveScenarioClassification"
+        },
+        {
+          "task": "MrTidyRetrieval",
+          "task_type": "Retrieval",
+          "score": 71.97,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MrTidyRetrieval"
+        },
+        {
+          "task": "MultiLongDocReranking",
+          "task_type": "Reranking",
+          "score": 43.58,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultiLongDocReranking"
+        },
+        {
+          "task": "MultiLongDocRetrieval",
+          "task_type": "Retrieval",
+          "score": 27.96,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultiLongDocRetrieval"
+        },
+        {
+          "task": "MultilingualSentimentClassification",
+          "task_type": "Classification",
+          "score": 64.03,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultilingualSentimentClassification"
+        },
+        {
+          "task": "NTREXBitextMining",
+          "task_type": "BitextMining",
+          "score": 31.28,
+          "split": "test",
+          "n_subsets": 14,
+          "main_metric": "NTREXBitextMining"
+        },
+        {
+          "task": "SIB200Classification",
+          "task_type": "Classification",
+          "score": 72.55,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200Classification"
+        },
+        {
+          "task": "SIB200ClusteringS2S",
+          "task_type": "Clustering",
+          "score": 43.24,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200ClusteringS2S"
+        },
+        {
+          "task": "Tatoeba",
+          "task_type": "BitextMining",
+          "score": 49.73,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "Tatoeba"
+        },
+        {
+          "task": "WebFAQBitextMiningQAs",
+          "task_type": "BitextMining",
+          "score": 93.97,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQAs"
+        },
+        {
+          "task": "WebFAQBitextMiningQuestions",
+          "task_type": "BitextMining",
+          "score": 79.56,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQuestions"
+        },
+        {
+          "task": "WebFAQRetrieval",
+          "task_type": "Retrieval",
+          "score": 75.54,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WebFAQRetrieval"
+        },
+        {
+          "task": "WisesightSentimentClassification.v2",
+          "task_type": "Classification",
+          "score": 27.85,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WisesightSentimentClassification.v2"
+        },
+        {
+          "task": "WongnaiReviewsClassification",
+          "task_type": "Classification",
+          "score": 25.91,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WongnaiReviewsClassification"
+        },
+        {
+          "task": "XNLI",
+          "task_type": "PairClassification",
+          "score": 61.11,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "XNLI"
+        },
+        {
+          "task": "XQuADRetrieval",
+          "task_type": "Retrieval",
+          "score": 94.8,
+          "split": "validation",
+          "n_subsets": 1,
+          "main_metric": "XQuADRetrieval"
+        }
+      ],
+      "meta": {
+        "revision": "f78e3eca89d031542d392ecba158b248caa1e8c7",
+        "release_date": null,
+        "n_parameters": null,
+        "max_tokens": null,
+        "embed_dim": null,
+        "license": null,
+        "framework": [],
+        "open_weights": null,
+        "similarity_fn_name": null
+      }
+    },
+    {
+      "name": "intfloat/e5-mistral-7b-instruct",
+      "name_safe": "intfloat__e5-mistral-7b-instruct",
+      "tasks_completed": 10,
+      "tasks_total": 28,
+      "avg_score": 51.78,
+      "type_averages": {
+        "Classification": 56.34,
+        "Clustering": 8.24,
+        "PairClassification": 58.87
+      },
+      "task_results": [
+        {
+          "task": "LanguageClassification",
+          "task_type": "Classification",
+          "score": 96.44,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "LanguageClassification"
+        },
+        {
+          "task": "MTOPDomainClassification",
+          "task_type": "Classification",
+          "score": 66.8,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPDomainClassification"
+        },
+        {
+          "task": "MTOPIntentClassification",
+          "task_type": "Classification",
+          "score": 38.86,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPIntentClassification"
+        },
+        {
+          "task": "MassiveIntentClassification",
+          "task_type": "Classification",
+          "score": 46.53,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveIntentClassification"
+        },
+        {
+          "task": "MassiveScenarioClassification",
+          "task_type": "Classification",
+          "score": 56.28,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveScenarioClassification"
+        },
+        {
+          "task": "MultilingualSentimentClassification",
+          "task_type": "Classification",
+          "score": 58.23,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultilingualSentimentClassification"
+        },
+        {
+          "task": "SIB200Classification",
+          "task_type": "Classification",
+          "score": 59.51,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200Classification"
+        },
+        {
+          "task": "SIB200ClusteringS2S",
+          "task_type": "Clustering",
+          "score": 8.24,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200ClusteringS2S"
+        },
+        {
+          "task": "WisesightSentimentClassification.v2",
+          "task_type": "Classification",
+          "score": 28.03,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WisesightSentimentClassification.v2"
+        },
+        {
+          "task": "XNLI",
+          "task_type": "PairClassification",
+          "score": 58.87,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "XNLI"
+        }
+      ],
+      "meta": {
+        "revision": "07163b72af1488142a360786df853f237b1a3ca1",
+        "release_date": "2024-02-08",
+        "n_parameters": 7111000000,
+        "max_tokens": 32768.0,
+        "embed_dim": 4096,
+        "license": "mit",
+        "framework": [
+          "GritLM",
+          "PyTorch",
+          "Sentence Transformers",
+          "safetensors",
+          "Transformers"
+        ],
+        "open_weights": true,
+        "similarity_fn_name": "cosine"
+      }
+    },
+    {
+      "name": "BAAI/bge-large-en-v1.5",
+      "name_safe": "BAAI__bge-large-en-v1.5",
+      "tasks_completed": 28,
+      "tasks_total": 28,
+      "avg_score": 18.42,
+      "type_averages": {
+        "Retrieval": 6.89,
+        "Classification": 28.93,
+        "BitextMining": 20.84,
+        "Reranking": 6.51,
+        "Clustering": 3.12,
+        "PairClassification": 52.24
+      },
+      "task_results": [
+        {
+          "task": "BelebeleRetrieval",
+          "task_type": "Retrieval",
+          "score": 16.63,
+          "split": "test",
+          "n_subsets": 3,
+          "main_metric": "BelebeleRetrieval"
+        },
+        {
+          "task": "BibleNLPBitextMining",
+          "task_type": "BitextMining",
+          "score": 0.01,
+          "split": "train",
+          "n_subsets": 2,
+          "main_metric": "BibleNLPBitextMining"
+        },
+        {
+          "task": "FloresBitextMining",
+          "task_type": "BitextMining",
+          "score": 10.59,
+          "split": "devtest",
+          "n_subsets": 406,
+          "main_metric": "FloresBitextMining"
+        },
+        {
+          "task": "LanguageClassification",
+          "task_type": "Classification",
+          "score": 95.5,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "LanguageClassification"
+        },
+        {
+          "task": "MIRACLReranking",
+          "task_type": "Reranking",
+          "score": 1.0,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLReranking"
+        },
+        {
+          "task": "MIRACLRetrieval",
+          "task_type": "Retrieval",
+          "score": 0.59,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrieval"
+        },
+        {
+          "task": "MIRACLRetrievalHardNegatives",
+          "task_type": "Retrieval",
+          "score": 0.92,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrievalHardNegatives"
+        },
+        {
+          "task": "MIRACLRetrievalHardNegatives.v2",
+          "task_type": "Retrieval",
+          "score": 0.92,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrievalHardNegatives.v2"
+        },
+        {
+          "task": "MKQARetrieval",
+          "task_type": "Retrieval",
+          "score": 0.76,
+          "split": "train",
+          "n_subsets": 1,
+          "main_metric": "MKQARetrieval"
+        },
+        {
+          "task": "MTOPDomainClassification",
+          "task_type": "Classification",
+          "score": 15.91,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPDomainClassification"
+        },
+        {
+          "task": "MTOPIntentClassification",
+          "task_type": "Classification",
+          "score": 5.15,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPIntentClassification"
+        },
+        {
+          "task": "MassiveIntentClassification",
+          "task_type": "Classification",
+          "score": 10.87,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveIntentClassification"
+        },
+        {
+          "task": "MassiveScenarioClassification",
+          "task_type": "Classification",
+          "score": 19.92,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveScenarioClassification"
+        },
+        {
+          "task": "MrTidyRetrieval",
+          "task_type": "Retrieval",
+          "score": 0.9,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MrTidyRetrieval"
+        },
+        {
+          "task": "MultiLongDocReranking",
+          "task_type": "Reranking",
+          "score": 12.03,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultiLongDocReranking"
+        },
+        {
+          "task": "MultiLongDocRetrieval",
+          "task_type": "Retrieval",
+          "score": 3.66,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultiLongDocRetrieval"
+        },
+        {
+          "task": "MultilingualSentimentClassification",
+          "task_type": "Classification",
+          "score": 54.42,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultilingualSentimentClassification"
+        },
+        {
+          "task": "NTREXBitextMining",
+          "task_type": "BitextMining",
+          "score": 18.35,
+          "split": "test",
+          "n_subsets": 14,
+          "main_metric": "NTREXBitextMining"
+        },
+        {
+          "task": "SIB200Classification",
+          "task_type": "Classification",
+          "score": 17.06,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200Classification"
+        },
+        {
+          "task": "SIB200ClusteringS2S",
+          "task_type": "Clustering",
+          "score": 3.12,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200ClusteringS2S"
+        },
+        {
+          "task": "Tatoeba",
+          "task_type": "BitextMining",
+          "score": 0.9,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "Tatoeba"
+        },
+        {
+          "task": "WebFAQBitextMiningQAs",
+          "task_type": "BitextMining",
+          "score": 56.25,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQAs"
+        },
+        {
+          "task": "WebFAQBitextMiningQuestions",
+          "task_type": "BitextMining",
+          "score": 38.96,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQuestions"
+        },
+        {
+          "task": "WebFAQRetrieval",
+          "task_type": "Retrieval",
+          "score": 22.5,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WebFAQRetrieval"
+        },
+        {
+          "task": "WisesightSentimentClassification.v2",
+          "task_type": "Classification",
+          "score": 21.4,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WisesightSentimentClassification.v2"
+        },
+        {
+          "task": "WongnaiReviewsClassification",
+          "task_type": "Classification",
+          "score": 20.17,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WongnaiReviewsClassification"
+        },
+        {
+          "task": "XNLI",
+          "task_type": "PairClassification",
+          "score": 52.24,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "XNLI"
+        },
+        {
+          "task": "XQuADRetrieval",
+          "task_type": "Retrieval",
+          "score": 15.1,
+          "split": "validation",
+          "n_subsets": 1,
+          "main_metric": "XQuADRetrieval"
+        }
+      ],
+      "meta": {
+        "revision": "d4aa6901d3a41ba39fb536a557fa166f842b0e09",
+        "release_date": "2023-09-12",
+        "n_parameters": 335000000,
+        "max_tokens": 512.0,
+        "embed_dim": 1024,
+        "license": "mit",
+        "framework": [
+          "Sentence Transformers",
+          "PyTorch",
+          "ONNX",
+          "safetensors",
+          "Transformers"
+        ],
+        "open_weights": true,
+        "similarity_fn_name": "cosine"
+      }
+    },
+    {
+      "name": "nomic-ai/nomic-embed-text-v1.5",
+      "name_safe": "nomic-ai__nomic-embed-text-v1.5",
+      "tasks_completed": 28,
+      "tasks_total": 28,
+      "avg_score": 17.91,
+      "type_averages": {
+        "Retrieval": 6.64,
+        "Classification": 29.05,
+        "BitextMining": 20.74,
+        "Reranking": 0.35,
+        "Clustering": 3.59,
+        "PairClassification": 51.5
+      },
+      "task_results": [
+        {
+          "task": "BelebeleRetrieval",
+          "task_type": "Retrieval",
+          "score": 14.87,
+          "split": "test",
+          "n_subsets": 3,
+          "main_metric": "BelebeleRetrieval"
+        },
+        {
+          "task": "BibleNLPBitextMining",
+          "task_type": "BitextMining",
+          "score": 0.01,
+          "split": "train",
+          "n_subsets": 2,
+          "main_metric": "BibleNLPBitextMining"
+        },
+        {
+          "task": "FloresBitextMining",
+          "task_type": "BitextMining",
+          "score": 9.44,
+          "split": "devtest",
+          "n_subsets": 406,
+          "main_metric": "FloresBitextMining"
+        },
+        {
+          "task": "LanguageClassification",
+          "task_type": "Classification",
+          "score": 96.12,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "LanguageClassification"
+        },
+        {
+          "task": "MIRACLReranking",
+          "task_type": "Reranking",
+          "score": 0.53,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLReranking"
+        },
+        {
+          "task": "MIRACLRetrieval",
+          "task_type": "Retrieval",
+          "score": 0.77,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrieval"
+        },
+        {
+          "task": "MIRACLRetrievalHardNegatives",
+          "task_type": "Retrieval",
+          "score": 0.87,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrievalHardNegatives"
+        },
+        {
+          "task": "MIRACLRetrievalHardNegatives.v2",
+          "task_type": "Retrieval",
+          "score": 0.87,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrievalHardNegatives.v2"
+        },
+        {
+          "task": "MKQARetrieval",
+          "task_type": "Retrieval",
+          "score": 0.5,
+          "split": "train",
+          "n_subsets": 1,
+          "main_metric": "MKQARetrieval"
+        },
+        {
+          "task": "MTOPDomainClassification",
+          "task_type": "Classification",
+          "score": 16.52,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPDomainClassification"
+        },
+        {
+          "task": "MTOPIntentClassification",
+          "task_type": "Classification",
+          "score": 4.62,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPIntentClassification"
+        },
+        {
+          "task": "MassiveIntentClassification",
+          "task_type": "Classification",
+          "score": 11.22,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveIntentClassification"
+        },
+        {
+          "task": "MassiveScenarioClassification",
+          "task_type": "Classification",
+          "score": 19.82,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveScenarioClassification"
+        },
+        {
+          "task": "MrTidyRetrieval",
+          "task_type": "Retrieval",
+          "score": 0.82,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MrTidyRetrieval"
+        },
+        {
+          "task": "MultiLongDocReranking",
+          "task_type": "Reranking",
+          "score": 0.16,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultiLongDocReranking"
+        },
+        {
+          "task": "MultiLongDocRetrieval",
+          "task_type": "Retrieval",
+          "score": 0.37,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultiLongDocRetrieval"
+        },
+        {
+          "task": "MultilingualSentimentClassification",
+          "task_type": "Classification",
+          "score": 55.26,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultilingualSentimentClassification"
+        },
+        {
+          "task": "NTREXBitextMining",
+          "task_type": "BitextMining",
+          "score": 19.3,
+          "split": "test",
+          "n_subsets": 14,
+          "main_metric": "NTREXBitextMining"
+        },
+        {
+          "task": "SIB200Classification",
+          "task_type": "Classification",
+          "score": 18.38,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200Classification"
+        },
+        {
+          "task": "SIB200ClusteringS2S",
+          "task_type": "Clustering",
+          "score": 3.59,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200ClusteringS2S"
+        },
+        {
+          "task": "Tatoeba",
+          "task_type": "BitextMining",
+          "score": 0.73,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "Tatoeba"
+        },
+        {
+          "task": "WebFAQBitextMiningQAs",
+          "task_type": "BitextMining",
+          "score": 55.26,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQAs"
+        },
+        {
+          "task": "WebFAQBitextMiningQuestions",
+          "task_type": "BitextMining",
+          "score": 39.69,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQuestions"
+        },
+        {
+          "task": "WebFAQRetrieval",
+          "task_type": "Retrieval",
+          "score": 24.17,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WebFAQRetrieval"
+        },
+        {
+          "task": "WisesightSentimentClassification.v2",
+          "task_type": "Classification",
+          "score": 20.43,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WisesightSentimentClassification.v2"
+        },
+        {
+          "task": "WongnaiReviewsClassification",
+          "task_type": "Classification",
+          "score": 19.06,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WongnaiReviewsClassification"
+        },
+        {
+          "task": "XNLI",
+          "task_type": "PairClassification",
+          "score": 51.5,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "XNLI"
+        },
+        {
+          "task": "XQuADRetrieval",
+          "task_type": "Retrieval",
+          "score": 16.48,
+          "split": "validation",
+          "n_subsets": 1,
+          "main_metric": "XQuADRetrieval"
+        }
+      ],
+      "meta": {
+        "revision": "b0753ae76394dd36bcfb912a46018088bca48be0",
+        "release_date": "2024-02-10",
+        "n_parameters": 136731648,
+        "max_tokens": 8192.0,
+        "embed_dim": 768,
+        "license": "apache-2.0",
+        "framework": [
+          "Sentence Transformers",
+          "PyTorch",
+          "ONNX",
+          "safetensors",
+          "Transformers"
+        ],
+        "open_weights": true,
+        "similarity_fn_name": "cosine"
+      }
+    },
+    {
+      "name": "sentence-transformers/all-mpnet-base-v2",
+      "name_safe": "sentence-transformers__all-mpnet-base-v2",
+      "tasks_completed": 28,
+      "tasks_total": 28,
+      "avg_score": 16.92,
+      "type_averages": {
+        "Retrieval": 5.69,
+        "Classification": 28.75,
+        "BitextMining": 16.78,
+        "Reranking": 4.0,
+        "Clustering": 3.31,
+        "PairClassification": 51.94
+      },
+      "task_results": [
+        {
+          "task": "BelebeleRetrieval",
+          "task_type": "Retrieval",
+          "score": 14.34,
+          "split": "test",
+          "n_subsets": 3,
+          "main_metric": "BelebeleRetrieval"
+        },
+        {
+          "task": "BibleNLPBitextMining",
+          "task_type": "BitextMining",
+          "score": 0.15,
+          "split": "train",
+          "n_subsets": 2,
+          "main_metric": "BibleNLPBitextMining"
+        },
+        {
+          "task": "FloresBitextMining",
+          "task_type": "BitextMining",
+          "score": 6.89,
+          "split": "devtest",
+          "n_subsets": 406,
+          "main_metric": "FloresBitextMining"
+        },
+        {
+          "task": "LanguageClassification",
+          "task_type": "Classification",
+          "score": 94.45,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "LanguageClassification"
+        },
+        {
+          "task": "MIRACLReranking",
+          "task_type": "Reranking",
+          "score": 0.25,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLReranking"
+        },
+        {
+          "task": "MIRACLRetrieval",
+          "task_type": "Retrieval",
+          "score": 0.2,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrieval"
+        },
+        {
+          "task": "MIRACLRetrievalHardNegatives",
+          "task_type": "Retrieval",
+          "score": 0.24,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrievalHardNegatives"
+        },
+        {
+          "task": "MIRACLRetrievalHardNegatives.v2",
+          "task_type": "Retrieval",
+          "score": 0.24,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrievalHardNegatives.v2"
+        },
+        {
+          "task": "MKQARetrieval",
+          "task_type": "Retrieval",
+          "score": 0.58,
+          "split": "train",
+          "n_subsets": 1,
+          "main_metric": "MKQARetrieval"
+        },
+        {
+          "task": "MTOPDomainClassification",
+          "task_type": "Classification",
+          "score": 17.54,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPDomainClassification"
+        },
+        {
+          "task": "MTOPIntentClassification",
+          "task_type": "Classification",
+          "score": 5.37,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPIntentClassification"
+        },
+        {
+          "task": "MassiveIntentClassification",
+          "task_type": "Classification",
+          "score": 8.51,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveIntentClassification"
+        },
+        {
+          "task": "MassiveScenarioClassification",
+          "task_type": "Classification",
+          "score": 17.01,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveScenarioClassification"
+        },
+        {
+          "task": "MrTidyRetrieval",
+          "task_type": "Retrieval",
+          "score": 0.35,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MrTidyRetrieval"
+        },
+        {
+          "task": "MultiLongDocReranking",
+          "task_type": "Reranking",
+          "score": 7.75,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultiLongDocReranking"
+        },
+        {
+          "task": "MultiLongDocRetrieval",
+          "task_type": "Retrieval",
+          "score": 3.59,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultiLongDocRetrieval"
+        },
+        {
+          "task": "MultilingualSentimentClassification",
+          "task_type": "Classification",
+          "score": 55.43,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultilingualSentimentClassification"
+        },
+        {
+          "task": "NTREXBitextMining",
+          "task_type": "BitextMining",
+          "score": 14.99,
+          "split": "test",
+          "n_subsets": 14,
+          "main_metric": "NTREXBitextMining"
+        },
+        {
+          "task": "SIB200Classification",
+          "task_type": "Classification",
+          "score": 16.27,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200Classification"
+        },
+        {
+          "task": "SIB200ClusteringS2S",
+          "task_type": "Clustering",
+          "score": 3.31,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200ClusteringS2S"
+        },
+        {
+          "task": "Tatoeba",
+          "task_type": "BitextMining",
+          "score": 0.0,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "Tatoeba"
+        },
+        {
+          "task": "WebFAQBitextMiningQAs",
+          "task_type": "BitextMining",
+          "score": 46.56,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQAs"
+        },
+        {
+          "task": "WebFAQBitextMiningQuestions",
+          "task_type": "BitextMining",
+          "score": 32.11,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQuestions"
+        },
+        {
+          "task": "WebFAQRetrieval",
+          "task_type": "Retrieval",
+          "score": 20.41,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WebFAQRetrieval"
+        },
+        {
+          "task": "WisesightSentimentClassification.v2",
+          "task_type": "Classification",
+          "score": 23.72,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WisesightSentimentClassification.v2"
+        },
+        {
+          "task": "WongnaiReviewsClassification",
+          "task_type": "Classification",
+          "score": 20.43,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WongnaiReviewsClassification"
+        },
+        {
+          "task": "XNLI",
+          "task_type": "PairClassification",
+          "score": 51.94,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "XNLI"
+        },
+        {
+          "task": "XQuADRetrieval",
+          "task_type": "Retrieval",
+          "score": 11.26,
+          "split": "validation",
+          "n_subsets": 1,
+          "main_metric": "XQuADRetrieval"
+        }
+      ],
+      "meta": {
+        "revision": "9a3225965996d404b775526de6dbfe85d3368642",
+        "release_date": "2021-08-30",
+        "n_parameters": 109486464,
+        "max_tokens": 384.0,
+        "embed_dim": 768,
+        "license": "apache-2.0",
+        "framework": [
+          "Sentence Transformers",
+          "PyTorch",
+          "ONNX",
+          "safetensors",
+          "Transformers"
+        ],
+        "open_weights": true,
+        "similarity_fn_name": "cosine"
+      }
+    },
+    {
+      "name": "sentence-transformers/all-MiniLM-L6-v2",
+      "name_safe": "sentence-transformers__all-MiniLM-L6-v2",
+      "tasks_completed": 28,
+      "tasks_total": 28,
+      "avg_score": 16.46,
+      "type_averages": {
+        "Retrieval": 5.09,
+        "Classification": 28.34,
+        "BitextMining": 16.49,
+        "Reranking": 2.91,
+        "Clustering": 3.58,
+        "PairClassification": 51.71
+      },
+      "task_results": [
+        {
+          "task": "BelebeleRetrieval",
+          "task_type": "Retrieval",
+          "score": 12.55,
+          "split": "test",
+          "n_subsets": 3,
+          "main_metric": "BelebeleRetrieval"
+        },
+        {
+          "task": "BibleNLPBitextMining",
+          "task_type": "BitextMining",
+          "score": 0.04,
+          "split": "train",
+          "n_subsets": 2,
+          "main_metric": "BibleNLPBitextMining"
+        },
+        {
+          "task": "FloresBitextMining",
+          "task_type": "BitextMining",
+          "score": 5.7,
+          "split": "devtest",
+          "n_subsets": 406,
+          "main_metric": "FloresBitextMining"
+        },
+        {
+          "task": "LanguageClassification",
+          "task_type": "Classification",
+          "score": 90.02,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "LanguageClassification"
+        },
+        {
+          "task": "MIRACLReranking",
+          "task_type": "Reranking",
+          "score": 0.53,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLReranking"
+        },
+        {
+          "task": "MIRACLRetrieval",
+          "task_type": "Retrieval",
+          "score": 0.33,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrieval"
+        },
+        {
+          "task": "MIRACLRetrievalHardNegatives",
+          "task_type": "Retrieval",
+          "score": 0.46,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrievalHardNegatives"
+        },
+        {
+          "task": "MIRACLRetrievalHardNegatives.v2",
+          "task_type": "Retrieval",
+          "score": 0.46,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrievalHardNegatives.v2"
+        },
+        {
+          "task": "MKQARetrieval",
+          "task_type": "Retrieval",
+          "score": 0.43,
+          "split": "train",
+          "n_subsets": 1,
+          "main_metric": "MKQARetrieval"
+        },
+        {
+          "task": "MTOPDomainClassification",
+          "task_type": "Classification",
+          "score": 16.41,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPDomainClassification"
+        },
+        {
+          "task": "MTOPIntentClassification",
+          "task_type": "Classification",
+          "score": 5.44,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPIntentClassification"
+        },
+        {
+          "task": "MassiveIntentClassification",
+          "task_type": "Classification",
+          "score": 11.26,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveIntentClassification"
+        },
+        {
+          "task": "MassiveScenarioClassification",
+          "task_type": "Classification",
+          "score": 19.5,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveScenarioClassification"
+        },
+        {
+          "task": "MrTidyRetrieval",
+          "task_type": "Retrieval",
+          "score": 0.27,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MrTidyRetrieval"
+        },
+        {
+          "task": "MultiLongDocReranking",
+          "task_type": "Reranking",
+          "score": 5.28,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultiLongDocReranking"
+        },
+        {
+          "task": "MultiLongDocRetrieval",
+          "task_type": "Retrieval",
+          "score": 1.69,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultiLongDocRetrieval"
+        },
+        {
+          "task": "MultilingualSentimentClassification",
+          "task_type": "Classification",
+          "score": 55.46,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultilingualSentimentClassification"
+        },
+        {
+          "task": "NTREXBitextMining",
+          "task_type": "BitextMining",
+          "score": 14.12,
+          "split": "test",
+          "n_subsets": 14,
+          "main_metric": "NTREXBitextMining"
+        },
+        {
+          "task": "SIB200Classification",
+          "task_type": "Classification",
+          "score": 14.8,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200Classification"
+        },
+        {
+          "task": "SIB200ClusteringS2S",
+          "task_type": "Clustering",
+          "score": 3.58,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200ClusteringS2S"
+        },
+        {
+          "task": "Tatoeba",
+          "task_type": "BitextMining",
+          "score": 0.3,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "Tatoeba"
+        },
+        {
+          "task": "WebFAQBitextMiningQAs",
+          "task_type": "BitextMining",
+          "score": 47.2,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQAs"
+        },
+        {
+          "task": "WebFAQBitextMiningQuestions",
+          "task_type": "BitextMining",
+          "score": 31.6,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQuestions"
+        },
+        {
+          "task": "WebFAQRetrieval",
+          "task_type": "Retrieval",
+          "score": 19.42,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WebFAQRetrieval"
+        },
+        {
+          "task": "WisesightSentimentClassification.v2",
+          "task_type": "Classification",
+          "score": 22.17,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WisesightSentimentClassification.v2"
+        },
+        {
+          "task": "WongnaiReviewsClassification",
+          "task_type": "Classification",
+          "score": 20.01,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WongnaiReviewsClassification"
+        },
+        {
+          "task": "XNLI",
+          "task_type": "PairClassification",
+          "score": 51.71,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "XNLI"
+        },
+        {
+          "task": "XQuADRetrieval",
+          "task_type": "Retrieval",
+          "score": 10.18,
+          "split": "validation",
+          "n_subsets": 1,
+          "main_metric": "XQuADRetrieval"
+        }
+      ],
+      "meta": {
+        "revision": "8b3219a92973c328a8e22fadcfa821b5dc75636a",
+        "release_date": "2021-08-30",
+        "n_parameters": 22713216,
+        "max_tokens": 256.0,
+        "embed_dim": 384,
+        "license": "apache-2.0",
+        "framework": [
+          "Sentence Transformers",
+          "PyTorch",
+          "ONNX",
+          "safetensors",
+          "Transformers"
+        ],
+        "open_weights": true,
+        "similarity_fn_name": "cosine"
+      }
+    },
+    {
+      "name": "Alibaba-NLP/gte-Qwen2-7B-instruct",
+      "name_safe": "Alibaba-NLP__gte-Qwen2-7B-instruct",
+      "tasks_completed": 11,
+      "tasks_total": 28,
+      "avg_score": 13.74,
+      "type_averages": {
+        "Classification": 11.18,
+        "Clustering": 0.28,
+        "PairClassification": 50.26
+      },
+      "task_results": [
+        {
+          "task": "LanguageClassification",
+          "task_type": "Classification",
+          "score": 4.98,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "LanguageClassification"
+        },
+        {
+          "task": "MTOPDomainClassification",
+          "task_type": "Classification",
+          "score": 7.23,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPDomainClassification"
+        },
+        {
+          "task": "MTOPIntentClassification",
+          "task_type": "Classification",
+          "score": 0.78,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPIntentClassification"
+        },
+        {
+          "task": "MassiveIntentClassification",
+          "task_type": "Classification",
+          "score": 1.11,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveIntentClassification"
+        },
+        {
+          "task": "MassiveScenarioClassification",
+          "task_type": "Classification",
+          "score": 3.23,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveScenarioClassification"
+        },
+        {
+          "task": "MultilingualSentimentClassification",
+          "task_type": "Classification",
+          "score": 59.21,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultilingualSentimentClassification"
+        },
+        {
+          "task": "SIB200Classification",
+          "task_type": "Classification",
+          "score": 10.93,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200Classification"
+        },
+        {
+          "task": "SIB200ClusteringS2S",
+          "task_type": "Clustering",
+          "score": 0.28,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200ClusteringS2S"
+        },
+        {
+          "task": "WisesightSentimentClassification.v2",
+          "task_type": "Classification",
+          "score": 7.59,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WisesightSentimentClassification.v2"
+        },
+        {
+          "task": "WongnaiReviewsClassification",
+          "task_type": "Classification",
+          "score": 5.55,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WongnaiReviewsClassification"
+        },
+        {
+          "task": "XNLI",
+          "task_type": "PairClassification",
+          "score": 50.26,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "XNLI"
+        }
+      ],
+      "meta": {
+        "revision": "e26182b2122f4435e8b3ebecbf363990f409b45b",
+        "release_date": "2024-06-15",
+        "n_parameters": 7069121024,
+        "max_tokens": 32768.0,
+        "embed_dim": 3584,
+        "license": "apache-2.0",
+        "framework": [
+          "Sentence Transformers",
+          "PyTorch",
+          "safetensors",
+          "Transformers"
+        ],
+        "open_weights": true,
+        "similarity_fn_name": "cosine"
+      }
+    },
+    {
+      "name": "Qwen/Qwen3-Embedding-8B",
+      "name_safe": "Qwen__Qwen3-Embedding-8B",
+      "tasks_completed": 19,
+      "tasks_total": 28,
+      "avg_score": 8.37,
+      "type_averages": {
+        "Classification": 13.03,
+        "Retrieval": 0.87,
+        "BitextMining": 0.01,
+        "Clustering": 1.45,
+        "PairClassification": 50.79
+      },
+      "task_results": [
+        {
+          "task": "BelebeleRetrieval",
+          "task_type": "Retrieval",
+          "score": 0.89,
+          "split": "test",
+          "n_subsets": 3,
+          "main_metric": "BelebeleRetrieval"
+        },
+        {
+          "task": "BibleNLPBitextMining",
+          "task_type": "BitextMining",
+          "score": 0.02,
+          "split": "train",
+          "n_subsets": 2,
+          "main_metric": "BibleNLPBitextMining"
+        },
+        {
+          "task": "FloresBitextMining",
+          "task_type": "BitextMining",
+          "score": 0.01,
+          "split": "devtest",
+          "n_subsets": 406,
+          "main_metric": "FloresBitextMining"
+        },
+        {
+          "task": "LanguageClassification",
+          "task_type": "Classification",
+          "score": 5.21,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "LanguageClassification"
+        },
+        {
+          "task": "MKQARetrieval",
+          "task_type": "Retrieval",
+          "score": 0.05,
+          "split": "train",
+          "n_subsets": 1,
+          "main_metric": "MKQARetrieval"
+        },
+        {
+          "task": "MTOPDomainClassification",
+          "task_type": "Classification",
+          "score": 12.67,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPDomainClassification"
+        },
+        {
+          "task": "MTOPIntentClassification",
+          "task_type": "Classification",
+          "score": 1.87,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPIntentClassification"
+        },
+        {
+          "task": "MassiveIntentClassification",
+          "task_type": "Classification",
+          "score": 1.36,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveIntentClassification"
+        },
+        {
+          "task": "MassiveScenarioClassification",
+          "task_type": "Classification",
+          "score": 3.34,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveScenarioClassification"
+        },
+        {
+          "task": "MultilingualSentimentClassification",
+          "task_type": "Classification",
+          "score": 59.21,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultilingualSentimentClassification"
+        },
+        {
+          "task": "NTREXBitextMining",
+          "task_type": "BitextMining",
+          "score": 0.0,
+          "split": "test",
+          "n_subsets": 14,
+          "main_metric": "NTREXBitextMining"
+        },
+        {
+          "task": "SIB200Classification",
+          "task_type": "Classification",
+          "score": 12.99,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200Classification"
+        },
+        {
+          "task": "SIB200ClusteringS2S",
+          "task_type": "Clustering",
+          "score": 1.45,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200ClusteringS2S"
+        },
+        {
+          "task": "Tatoeba",
+          "task_type": "BitextMining",
+          "score": 0.0,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "Tatoeba"
+        },
+        {
+          "task": "WebFAQBitextMiningQAs",
+          "task_type": "BitextMining",
+          "score": 0.0,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQAs"
+        },
+        {
+          "task": "WebFAQBitextMiningQuestions",
+          "task_type": "BitextMining",
+          "score": 0.01,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQuestions"
+        },
+        {
+          "task": "WisesightSentimentClassification.v2",
+          "task_type": "Classification",
+          "score": 7.59,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WisesightSentimentClassification.v2"
+        },
+        {
+          "task": "XNLI",
+          "task_type": "PairClassification",
+          "score": 50.79,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "XNLI"
+        },
+        {
+          "task": "XQuADRetrieval",
+          "task_type": "Retrieval",
+          "score": 1.66,
+          "split": "validation",
+          "n_subsets": 1,
+          "main_metric": "XQuADRetrieval"
+        }
+      ],
+      "meta": {
+        "revision": "4e423935c619ae4df87b646a3ce949610c66241c",
+        "release_date": "2025-06-05",
+        "n_parameters": 7567295488,
+        "max_tokens": 32768.0,
+        "embed_dim": 4096,
+        "license": "apache-2.0",
+        "framework": [
+          "Sentence Transformers",
+          "PyTorch",
+          "safetensors",
+          "Transformers"
+        ],
+        "open_weights": true,
+        "similarity_fn_name": "cosine"
+      }
+    },
+    {
+      "name": "Alibaba-NLP/gte-Qwen2-1.5B-instruct",
+      "name_safe": "Alibaba-NLP__gte-Qwen2-1.5B-instruct",
+      "tasks_completed": 28,
+      "tasks_total": 28,
+      "avg_score": 5.38,
+      "type_averages": {
+        "Retrieval": 0.32,
+        "Classification": 10.82,
+        "BitextMining": 0.0,
+        "Reranking": 0.1,
+        "Clustering": 0.28,
+        "PairClassification": 49.96
+      },
+      "task_results": [
+        {
+          "task": "BelebeleRetrieval",
+          "task_type": "Retrieval",
+          "score": 1.01,
+          "split": "test",
+          "n_subsets": 3,
+          "main_metric": "BelebeleRetrieval"
+        },
+        {
+          "task": "BibleNLPBitextMining",
+          "task_type": "BitextMining",
+          "score": 0.0,
+          "split": "train",
+          "n_subsets": 2,
+          "main_metric": "BibleNLPBitextMining"
+        },
+        {
+          "task": "FloresBitextMining",
+          "task_type": "BitextMining",
+          "score": 0.0,
+          "split": "devtest",
+          "n_subsets": 406,
+          "main_metric": "FloresBitextMining"
+        },
+        {
+          "task": "LanguageClassification",
+          "task_type": "Classification",
+          "score": 4.98,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "LanguageClassification"
+        },
+        {
+          "task": "MIRACLReranking",
+          "task_type": "Reranking",
+          "score": 0.03,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLReranking"
+        },
+        {
+          "task": "MIRACLRetrieval",
+          "task_type": "Retrieval",
+          "score": 0.0,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrieval"
+        },
+        {
+          "task": "MIRACLRetrievalHardNegatives",
+          "task_type": "Retrieval",
+          "score": 0.0,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrievalHardNegatives"
+        },
+        {
+          "task": "MIRACLRetrievalHardNegatives.v2",
+          "task_type": "Retrieval",
+          "score": 0.0,
+          "split": "dev",
+          "n_subsets": 1,
+          "main_metric": "MIRACLRetrievalHardNegatives.v2"
+        },
+        {
+          "task": "MKQARetrieval",
+          "task_type": "Retrieval",
+          "score": 0.04,
+          "split": "train",
+          "n_subsets": 1,
+          "main_metric": "MKQARetrieval"
+        },
+        {
+          "task": "MTOPDomainClassification",
+          "task_type": "Classification",
+          "score": 7.23,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPDomainClassification"
+        },
+        {
+          "task": "MTOPIntentClassification",
+          "task_type": "Classification",
+          "score": 3.66,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MTOPIntentClassification"
+        },
+        {
+          "task": "MassiveIntentClassification",
+          "task_type": "Classification",
+          "score": 1.37,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveIntentClassification"
+        },
+        {
+          "task": "MassiveScenarioClassification",
+          "task_type": "Classification",
+          "score": 3.23,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MassiveScenarioClassification"
+        },
+        {
+          "task": "MrTidyRetrieval",
+          "task_type": "Retrieval",
+          "score": 0.0,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MrTidyRetrieval"
+        },
+        {
+          "task": "MultiLongDocReranking",
+          "task_type": "Reranking",
+          "score": 0.16,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultiLongDocReranking"
+        },
+        {
+          "task": "MultiLongDocRetrieval",
+          "task_type": "Retrieval",
+          "score": 0.0,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultiLongDocRetrieval"
+        },
+        {
+          "task": "MultilingualSentimentClassification",
+          "task_type": "Classification",
+          "score": 59.21,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "MultilingualSentimentClassification"
+        },
+        {
+          "task": "NTREXBitextMining",
+          "task_type": "BitextMining",
+          "score": 0.0,
+          "split": "test",
+          "n_subsets": 14,
+          "main_metric": "NTREXBitextMining"
+        },
+        {
+          "task": "SIB200Classification",
+          "task_type": "Classification",
+          "score": 9.31,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200Classification"
+        },
+        {
+          "task": "SIB200ClusteringS2S",
+          "task_type": "Clustering",
+          "score": 0.28,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "SIB200ClusteringS2S"
+        },
+        {
+          "task": "Tatoeba",
+          "task_type": "BitextMining",
+          "score": 0.0,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "Tatoeba"
+        },
+        {
+          "task": "WebFAQBitextMiningQAs",
+          "task_type": "BitextMining",
+          "score": 0.0,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQAs"
+        },
+        {
+          "task": "WebFAQBitextMiningQuestions",
+          "task_type": "BitextMining",
+          "score": 0.01,
+          "split": "default",
+          "n_subsets": 2,
+          "main_metric": "WebFAQBitextMiningQuestions"
+        },
+        {
+          "task": "WebFAQRetrieval",
+          "task_type": "Retrieval",
+          "score": 0.0,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WebFAQRetrieval"
+        },
+        {
+          "task": "WisesightSentimentClassification.v2",
+          "task_type": "Classification",
+          "score": 7.59,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WisesightSentimentClassification.v2"
+        },
+        {
+          "task": "WongnaiReviewsClassification",
+          "task_type": "Classification",
+          "score": 0.83,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "WongnaiReviewsClassification"
+        },
+        {
+          "task": "XNLI",
+          "task_type": "PairClassification",
+          "score": 49.96,
+          "split": "test",
+          "n_subsets": 1,
+          "main_metric": "XNLI"
+        },
+        {
+          "task": "XQuADRetrieval",
+          "task_type": "Retrieval",
+          "score": 1.85,
+          "split": "validation",
+          "n_subsets": 1,
+          "main_metric": "XQuADRetrieval"
+        }
+      ],
+      "meta": {
+        "revision": "c6c1b92f4a3e1b92b326ad29dd3c8433457df8dd",
+        "release_date": "2024-07-29",
+        "n_parameters": 1543268864,
+        "max_tokens": 32768.0,
+        "embed_dim": 8960,
+        "license": "apache-2.0",
+        "framework": [
+          "Sentence Transformers",
+          "PyTorch",
+          "safetensors",
+          "Transformers"
+        ],
+        "open_weights": true,
+        "similarity_fn_name": "cosine"
+      }
+    }
+  ]
+}
