@@ -6,9 +6,21 @@
 
 ## Overview
 
-This report presents benchmark results for text embedding models evaluated on 28 Thai-language tasks from the [MTEB framework](https://github.com/embeddings-benchmark/mteb) (v2.10.0).
+This report presents benchmark results for **14 multilingual text embedding models** evaluated on 28 Thai-language tasks from the [MTEB framework](https://github.com/embeddings-benchmark/mteb) (v2.10.0).
+
+Results are submitted to the official [MTEB Results Repository](https://github.com/embeddings-benchmark/results/pull/428).
 
 All evaluations were run on the [LANTA Supercomputer](https://thaisc.io/) with computing resources provided for free by [ThaiSC](https://thaisc.io/)/[NSTDA](https://www.nstda.or.th/), using NVIDIA A100-SXM4-40GB GPUs.
+
+### Top Models (Thai)
+
+| Rank | Model | Avg Score | Tasks |
+|------|-------|-----------|-------|
+| 1 | Qwen/Qwen3-Embedding-4B | 74.41 | 24/28 |
+| 2 | tencent/KaLM-Embedding-Gemma3-12B | 73.92 | 28/28 |
+| 3 | ICT-TIME-and-Querit/BOOM_4B_v1 | 71.84 | 19/28 |
+| 4 | jinaai/jina-embeddings-v5-text-small | 69.90 | 27/28 |
+| 5 | Qwen/Qwen3-Embedding-0.6B | 69.08 | 27/28 |
 
 ### Task Coverage
 
@@ -24,7 +36,7 @@ All evaluations were run on the [LANTA Supercomputer](https://thaisc.io/) with c
 ### Environment
 
 - **Compute:** LANTA Supercomputer (Cray EX), NVIDIA A100-SXM4-40GB GPUs
-- **Framework:** MTEB 2.10.0, sentence-transformers 5.2.3, PyTorch 2.10.0+cu128
+- **Framework:** MTEB 2.10.0, sentence-transformers, PyTorch 2.10.0+cu128
 - **Evaluation:** `languages=["tha"]` filter, `trust_remote_code=True`
 
 ## Acknowledgment
