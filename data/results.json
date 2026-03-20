@@ -766,7 +766,7 @@
       ],
       "meta": {
         "revision": null,
-        "n_parameters": null,
+        "n_parameters": 7111000000,
         "screening_only": true
       }
     },
@@ -998,7 +998,7 @@
       ],
       "meta": {
         "revision": null,
-        "n_parameters": null,
+        "n_parameters": 560000000,
         "screening_only": true
       }
     },
@@ -1034,7 +1034,7 @@
       ],
       "meta": {
         "revision": null,
-        "n_parameters": null,
+        "n_parameters": 346000000,
         "screening_only": true
       }
     },
@@ -1070,7 +1070,7 @@
       ],
       "meta": {
         "revision": null,
-        "n_parameters": null,
+        "n_parameters": 568000000,
         "screening_only": true
       }
     },
@@ -1260,7 +1260,7 @@
       ],
       "meta": {
         "revision": "57c266a740f537b4dc058e1b0cda161fd15afa75",
-        "n_parameters": null,
+        "n_parameters": 308000000,
         "max_tokens": 2048,
         "embed_dim": 768,
         "license": null,
@@ -1510,7 +1510,7 @@
       ],
       "meta": {
         "revision": null,
-        "n_parameters": null,
+        "n_parameters": 7610000000,
         "screening_only": true
       }
     },
@@ -1748,7 +1748,7 @@
       ],
       "meta": {
         "revision": null,
-        "n_parameters": null,
+        "n_parameters": 212000000,
         "screening_only": true
       }
     },
@@ -1784,7 +1784,7 @@
       ],
       "meta": {
         "revision": null,
-        "n_parameters": null,
+        "n_parameters": 596000000,
         "screening_only": true
       }
     },
@@ -2020,7 +2020,7 @@
       ],
       "meta": {
         "revision": null,
-        "n_parameters": null,
+        "n_parameters": 607000000,
         "screening_only": true
       }
     },
@@ -2056,7 +2056,7 @@
       ],
       "meta": {
         "revision": null,
-        "n_parameters": null,
+        "n_parameters": 596000000,
         "screening_only": true
       }
     },
@@ -2092,7 +2092,7 @@
       ],
       "meta": {
         "revision": null,
-        "n_parameters": null,
+        "n_parameters": 596000000,
         "screening_only": true
       }
     },
@@ -2282,7 +2282,7 @@
       ],
       "meta": {
         "revision": "215a6e121fa0183376388ac6b1ae230326bfeaed",
-        "n_parameters": null,
+        "n_parameters": 572000000,
         "max_tokens": 8194,
         "embed_dim": 1024,
         "license": null,
@@ -2327,7 +2327,7 @@
       ],
       "meta": {
         "revision": null,
-        "n_parameters": null,
+        "n_parameters": 7500000000,
         "screening_only": true
       }
     }
