@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-03-21T04:00:00",
+  "generated_at": "2026-03-21T18:00:00",
   "mteb_version": "2.10.0",
   "benchmark": "Thai MTEB",
   "n_tasks": 28,
@@ -1609,44 +1609,6 @@
       "screening_score": 55.27
     },
     {
-      "name": "voyageai/voyage-4-nano",
-      "name_safe": "voyageai__voyage-4-nano",
-      "tasks_completed": 12,
-      "tasks_total": 28,
-      "avg_score": 65.1,
-      "type_averages": {
-        "Classification": 64.21,
-        "Clustering": 45.96,
-        "PairClassification": 65.55,
-        "Reranking": 61.3,
-        "Retrieval": 70.3
-      },
-      "task_results": [
-        {
-          "task": "WisesightSentimentClassification.v2",
-          "task_type": "Classification",
-          "score": 30.81,
-          "split": "test"
-        },
-        {
-          "task": "SIB200Classification",
-          "task_type": "Classification",
-          "score": 77.52,
-          "split": "test"
-        },
-        {
-          "task": "XQuADRetrieval",
-          "task_type": "Retrieval",
-          "score": 95.75,
-          "split": "validation"
-        }
-      ],
-      "meta": {
-        "revision": null,
-        "n_parameters": 346000000
-      }
-    },
-    {
       "name": "BAAI/bge-m3",
       "name_safe": "BAAI__bge-m3",
       "tasks_completed": 28,
@@ -1847,10 +1809,48 @@
       }
     },
     {
+      "name": "voyageai/voyage-4-nano",
+      "name_safe": "voyageai__voyage-4-nano",
+      "tasks_completed": 15,
+      "tasks_total": 15,
+      "avg_score": 61.84,
+      "type_averages": {
+        "Classification": 64.21,
+        "Clustering": 45.96,
+        "PairClassification": 65.55,
+        "Reranking": 54.91,
+        "Retrieval": 64.21
+      },
+      "task_results": [
+        {
+          "task": "WisesightSentimentClassification.v2",
+          "task_type": "Classification",
+          "score": 30.81,
+          "split": "test"
+        },
+        {
+          "task": "SIB200Classification",
+          "task_type": "Classification",
+          "score": 77.52,
+          "split": "test"
+        },
+        {
+          "task": "XQuADRetrieval",
+          "task_type": "Retrieval",
+          "score": 95.75,
+          "split": "validation"
+        }
+      ],
+      "meta": {
+        "revision": null,
+        "n_parameters": 346000000
+      }
+    },
+    {
       "name": "telepix/PIXIE-Rune-v1.0",
       "name_safe": "telepix__PIXIE-Rune-v1.0",
       "tasks_completed": 15,
-      "tasks_total": 28,
+      "tasks_total": 15,
       "avg_score": 61.54,
       "type_averages": {
         "Classification": 65.11,
@@ -1885,123 +1885,10 @@
       }
     },
     {
-      "name": "IEITYuan/Yuan-embedding-2.0-en",
-      "name_safe": "IEITYuan__Yuan-embedding-2.0-en",
-      "tasks_completed": 12,
-      "tasks_total": 28,
-      "avg_score": 60.94,
-      "type_averages": {
-        "Classification": 61.52,
-        "Clustering": 39.02,
-        "PairClassification": 64.84,
-        "Reranking": 60.23,
-        "Retrieval": 64.22
-      },
-      "task_results": [
-        {
-          "task": "WisesightSentimentClassification.v2",
-          "task_type": "Classification",
-          "score": 30.15,
-          "split": "test"
-        },
-        {
-          "task": "SIB200Classification",
-          "task_type": "Classification",
-          "score": 70.17,
-          "split": "test"
-        },
-        {
-          "task": "XQuADRetrieval",
-          "task_type": "Retrieval",
-          "score": 88.91,
-          "split": "validation"
-        }
-      ],
-      "meta": {
-        "revision": null,
-        "n_parameters": 596000000
-      }
-    },
-    {
-      "name": "bflhc/Octen-Embedding-0.6B",
-      "name_safe": "bflhc__Octen-Embedding-0.6B",
-      "tasks_completed": 9,
-      "tasks_total": 28,
-      "avg_score": 59.92,
-      "type_averages": {
-        "Classification": 62.05,
-        "Clustering": 37.53,
-        "PairClassification": 67.53,
-        "Retrieval": 62.0
-      },
-      "task_results": [
-        {
-          "task": "WisesightSentimentClassification.v2",
-          "task_type": "Classification",
-          "score": 30.33,
-          "split": "test"
-        },
-        {
-          "task": "SIB200Classification",
-          "task_type": "Classification",
-          "score": 70.71,
-          "split": "test"
-        },
-        {
-          "task": "XQuADRetrieval",
-          "task_type": "Retrieval",
-          "score": 91.19,
-          "split": "validation"
-        }
-      ],
-      "meta": {
-        "revision": null,
-        "n_parameters": 596000000
-      }
-    },
-    {
-      "name": "infgrad/Jasper-Token-Compression-600M",
-      "name_safe": "infgrad__Jasper-Token-Compression-600M",
-      "tasks_completed": 14,
-      "tasks_total": 28,
-      "avg_score": 59.22,
-      "type_averages": {
-        "Classification": 62.52,
-        "Clustering": 37.82,
-        "PairClassification": 64.78,
-        "Reranking": 46.49,
-        "Retrieval": 63.89
-      },
-      "task_results": [
-        {
-          "task": "WisesightSentimentClassification.v2",
-          "task_type": "Classification",
-          "score": 30.93,
-          "split": "test"
-        },
-        {
-          "task": "SIB200Classification",
-          "task_type": "Classification",
-          "score": 71.73,
-          "split": "test"
-        },
-        {
-          "task": "XQuADRetrieval",
-          "task_type": "Retrieval",
-          "score": 90.13,
-          "split": "validation"
-        }
-      ],
-      "meta": {
-        "revision": null,
-        "n_parameters": 607000000
-      }
-    },
-    {
       "name": "SamilPwC-AXNode-GenAI/PwC-Embedding_expr",
       "name_safe": "SamilPwC-AXNode-GenAI__PwC-Embedding_expr",
       "tasks_completed": 15,
-      "tasks_total": 28,
+      "tasks_total": 15,
       "avg_score": 58.88,
       "type_averages": {
         "Classification": 64.61,
@@ -2033,6 +1920,44 @@
       "meta": {
         "revision": null,
         "n_parameters": 560000000
+      }
+    },
+    {
+      "name": "bflhc/Octen-Embedding-0.6B",
+      "name_safe": "bflhc__Octen-Embedding-0.6B",
+      "tasks_completed": 15,
+      "tasks_total": 15,
+      "avg_score": 58.76,
+      "type_averages": {
+        "Classification": 62.05,
+        "Clustering": 37.53,
+        "PairClassification": 67.53,
+        "Reranking": 52.0,
+        "Retrieval": 60.59
+      },
+      "task_results": [
+        {
+          "task": "WisesightSentimentClassification.v2",
+          "task_type": "Classification",
+          "score": 30.33,
+          "split": "test"
+        },
+        {
+          "task": "SIB200Classification",
+          "task_type": "Classification",
+          "score": 70.71,
+          "split": "test"
+        },
+        {
+          "task": "XQuADRetrieval",
+          "task_type": "Retrieval",
+          "score": 91.19,
+          "split": "validation"
+        }
+      ],
+      "meta": {
+        "revision": null,
+        "n_parameters": 596000000
       }
     },
     {
@@ -2071,6 +1996,44 @@
       "meta": {
         "revision": null,
         "n_parameters": 212000000
+      }
+    },
+    {
+      "name": "IEITYuan/Yuan-embedding-2.0-en",
+      "name_safe": "IEITYuan__Yuan-embedding-2.0-en",
+      "tasks_completed": 15,
+      "tasks_total": 15,
+      "avg_score": 58.02,
+      "type_averages": {
+        "Classification": 61.52,
+        "Clustering": 39.02,
+        "PairClassification": 64.84,
+        "Reranking": 53.77,
+        "Retrieval": 58.98
+      },
+      "task_results": [
+        {
+          "task": "WisesightSentimentClassification.v2",
+          "task_type": "Classification",
+          "score": 30.15,
+          "split": "test"
+        },
+        {
+          "task": "SIB200Classification",
+          "task_type": "Classification",
+          "score": 70.17,
+          "split": "test"
+        },
+        {
+          "task": "XQuADRetrieval",
+          "task_type": "Retrieval",
+          "score": 88.91,
+          "split": "validation"
+        }
+      ],
+      "meta": {
+        "revision": null,
+        "n_parameters": 596000000
       }
     },
     {
@@ -2309,10 +2272,48 @@
       }
     },
     {
+      "name": "infgrad/Jasper-Token-Compression-600M",
+      "name_safe": "infgrad__Jasper-Token-Compression-600M",
+      "tasks_completed": 15,
+      "tasks_total": 15,
+      "avg_score": 56.49,
+      "type_averages": {
+        "Classification": 62.52,
+        "Clustering": 37.82,
+        "PairClassification": 64.78,
+        "Reranking": 46.49,
+        "Retrieval": 57.39
+      },
+      "task_results": [
+        {
+          "task": "WisesightSentimentClassification.v2",
+          "task_type": "Classification",
+          "score": 30.93,
+          "split": "test"
+        },
+        {
+          "task": "SIB200Classification",
+          "task_type": "Classification",
+          "score": 71.73,
+          "split": "test"
+        },
+        {
+          "task": "XQuADRetrieval",
+          "task_type": "Retrieval",
+          "score": 90.13,
+          "split": "validation"
+        }
+      ],
+      "meta": {
+        "revision": null,
+        "n_parameters": 607000000
+      }
+    },
+    {
       "name": "codefuse-ai/F2LLM-0.6B",
       "name_safe": "codefuse-ai__F2LLM-0.6B",
       "tasks_completed": 15,
-      "tasks_total": 28,
+      "tasks_total": 15,
       "avg_score": 54.63,
       "type_averages": {
         "Classification": 67.07,
